@@ -7,8 +7,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <header className="App-header text-orange text-blue-700">testing
+        {/* <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
         <p>
           <button type="button" onClick={() => setCount((count) => count + 1)}>
@@ -36,7 +36,7 @@ function App() {
           >
             Vite Docs
           </a>
-        </p>
+        </p> */}
       </header>
     </div>
   )
