@@ -9,7 +9,7 @@ class MenuLink extends Component {
 		return (
 			<>
 				<li>
-					<a href="javascript:void(0)">Link</a>
+					<a href='#'>Link</a>
 				</li>
 			</>
 		);

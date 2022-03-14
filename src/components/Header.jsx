@@ -10,7 +10,7 @@ class Header extends Component {
 		return (
 			<>
 				<header>
-          <h2 className="App-header text-pink font-serif font-bold border-4 rounded-full hover:bg-blue-700 m-10">Natalie Correia</h2>
+          <h2 className="text-black font-serif font-bold mx-0.5">Natalie Correia</h2>
                   <Menu />
         </header>
 			</>

@@ -1,43 +1,17 @@
 import { useState } from 'react'
-import logo from './logo.svg'
+import Header from './components/Header'
+import Main from './components/Main'
+import Footer from './components/Footer'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <header className="App-header text-orange text-blue-700">testing
-        {/* <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p> */}
-      </header>
+    <div className="App bg-[url('./src/images/10475996-3x2-940x627.jpeg')] bg-left-top bg-cover">
+        <Header />
+        <Main />
+        <Footer />
     </div>
   )
 }
