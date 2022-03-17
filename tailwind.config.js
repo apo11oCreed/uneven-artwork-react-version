@@ -16,10 +16,16 @@ module.exports = {
       'gray-dark': '#273444',
       'gray': '#8492a6',
       'gray-light': '#d3dce6',
+      'splash-hex': '#6BD1D2',
+      'splash-rgba': 'rgba(107, 209, 210,1.0)',
+      'splash-hsla': 'hsla(181, 53%, 62%, 1.0)',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
+    },
+    backgroundImages:{
+      'default':'url("./public/10475996-3x2-940x627.jpeg")'
     },
     extend: {
       spacing: {
@@ -31,5 +37,6 @@ module.exports = {
       }
     }
   },
+  prefix: 'tw-',
   plugins: [],
 }
