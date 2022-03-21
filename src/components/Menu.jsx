@@ -9,7 +9,7 @@ class Menu extends Component {
 	render() {
 		return (
 			<>
-				<nav>
+				<nav className={this.props.className}>
 					<ul>
 						<MenuLink />
 						<MenuLink />

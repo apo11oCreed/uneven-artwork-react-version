@@ -10,8 +10,8 @@ class Header extends Component {
 		return (
 			<>
 				<header>
-          <h2 className="text-black font-serif font-bold mx-0.5">Natalie Correia</h2>
-                  <Menu />
+          <h1 className="tw-text-black tw-font-bold tw-mx-0.5 tw-text-7xl tw-text-center">Natalie Correia</h1>
+                  <Menu className="tw-main" />
         </header>
 			</>
 		);

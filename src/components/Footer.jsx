@@ -11,7 +11,7 @@ class Footer extends Component {
 		return (
 			<>
 				<footer>
-					<Menu />
+					<Menu className="tw-footer" />
 					<Legal />
 				</footer>
 			</>

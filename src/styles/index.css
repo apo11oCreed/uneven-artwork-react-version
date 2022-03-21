@@ -22,3 +22,9 @@
         @apply background-splash;
     }
 }
+
+@layer utilities{
+    body{
+        font-family: theme(fontFamily.opensans);
+    }
+}

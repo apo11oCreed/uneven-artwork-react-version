@@ -1,6 +1,7 @@
 module.exports = {
   mode:'jit',
   content: ["./src/**/*.{html,jsx}"],
+  prefix: 'tw-',
   theme: {
     screens: {
       sm: '480px',
@@ -14,8 +15,7 @@ module.exports = {
       'splash-hsla': 'hsla(181, 53%, 62%, 1.0)',
     },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      opensans :['Open Sans', 'sans-serif'],
     },
     backgroundImages:{
       'default':'url("./10475996-3x2-940x627.jpeg")'
