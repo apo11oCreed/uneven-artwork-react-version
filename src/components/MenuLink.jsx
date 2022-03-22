@@ -18,7 +18,7 @@ class MenuLink extends Component {
 	render() {
 		return (
 			<>
-				<li className="hover:bg-cyan-300">
+				<li>
 					<a href='#' onClick={this.handleClick} className="tw-underline tw-whitespace-nowrap">{this.props.displayText}</a>
 				</li>
 			</>

@@ -9,9 +9,9 @@ class Header extends Component {
 	render() {
 		return (
 			<>
-				<header className="tw-grid tw-grid-cols-12 tw-grid-rows-1">
+				<header className="tw-container tw-mx-auto">
           <h1 className="tw-text-black tw-font-bold tw-mx-0.5 tw-text-center tw-absolute tw-left-1/2 tw-bottom-1/2 tw-whitespace-nowrap -tw-translate-x-1/2 tw-tracking-[1rem] tw-text-[1.5rem] md:tw-text-7xl">Natalie Correia</h1>
-                  <Menu className="tw-main tw-w-fit tw-absolute tw-right-[2rem] tw-top-[2rem]" />
+                  <Menu className="tw-main tw-w-fit tw-fixed tw-right-[2rem] tw-top-[2rem]" />
         </header>
 			</>
 		);

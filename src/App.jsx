@@ -8,7 +8,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="tw-container tw-mx-auto tw-bg-left-top tw-bg-cover">
+    <div className="tw-bg-left-top tw-bg-cover">
         <Header />
         <Main />
         <Footer />

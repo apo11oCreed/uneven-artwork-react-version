@@ -10,9 +10,11 @@ class Footer extends Component {
 	render() {
 		return (
 			<>
-				<footer>
-					<Menu className="tw-footer" />
-					<Legal />
+				<footer className="tw-w-full tw-fixed tw-bottom-0 tw-py-2">
+					<div className="tw-container tw-mx-auto tw-flex tw-justify-center tw-items-center">
+						<Legal />
+						<Menu className="tw-footer" />
+					</div>
 				</footer>
 			</>
 		);

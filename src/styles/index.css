@@ -2,45 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-/* mixins */
-
-.background-splash{
-    background-size:cover;
-    background-repeat:no-repeat;
-    background-position:center top;
-    background-attachment:fixed;
-}
-
 /* themes */
 
-@layer base{
-    body{
-        background-color: theme(colors.splash-hex);
-        background-color: theme(colors.splash-rgba);
-        background-color: theme(colors.splash-hsla);
-        background-image: theme(backgroundImages.default);
-        @apply background-splash;
-    }
+@layer base {
+	/* mixins */
+
+	.background-splash {
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center top;
+		background-attachment: fixed;
+	}
+	.bg-splash {
+		background-color: theme(colors.splash-hex);
+		background-color: theme(colors.splash-rgba);
+		background-color: theme(colors.splash-hsla);
+	}
+	.bg-blue {
+		background-color: theme(colors.ngc-blue-hex);
+		background-color: theme(colors.ngc-blue-rgba);
+		background-color: theme(colors.ngc-blue-hsla);
+	}
+	.bg-pink {
+		background-color: theme(colors.ngc-light-pink-hex);
+		background-color: theme(colors.ngc-light-pink-rgba);
+		background-color: theme(colors.ngc-light-pink-hsla);
+	}
 }
 
-@layer components{
-    nav{
-        &.tw-main{
-            font-weight:700;
-            background-color: theme(colors.ngc-blue-hex);
-            background-color: theme(colors.ngc-blue-rgba);
-            background-color: theme(colors.ngc-blue-hsla);
-            color: #fff;
-            @apply tw-rounded;
-        }
-        &.tw-footer{
-            color:red;
-        }
-    }
+@layer components {
+	body {
+		background-image: theme(backgroundImages.default);
+		font-family: theme(fontFamily.opensans);
+		@apply bg-splash;
+		@apply background-splash;
+	}
+	header {
+		nav {
+			&.tw-main {
+				@apply bg-blue;
+                ul{
+                    @apply tw-px-4 tw-py-2 tw-rounded;
+                    li {
+                        @apply hover:bg-pink first:-tw-mt-2 first:-tw-mx-4 first:tw-border-b first:tw-border-[#fff] first:tw-border-solid last:-tw-mb-2 last:-tw-mx-4 tw-px-4 tw-py-2;
+                        a {
+                            @apply tw-font-bold tw-block;
+                            color: #fff;
+                        }
+                    }
+                }
+			}
+		}
+	}
+	footer {
+		color: #fff;
+		@apply bg-blue;
+		nav {
+			@apply tw-px-10;
+			&.tw-footer {
+				ul {
+					@apply tw-flex tw-flex-row tw-ml-4;
+					li {
+						@apply tw-border-r first:tw-pr-4 last:tw-pl-4 last:tw-border-r-0;
+						a {
+							@apply tw-font-normal tw-text-sm;
+							color: #fff;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
-@layer utilities{
+/* @layer utilities{
     body{
         font-family: theme(fontFamily.opensans);
     }
-}
+} */
