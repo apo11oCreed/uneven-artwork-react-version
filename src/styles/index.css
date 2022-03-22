@@ -23,6 +23,22 @@
     }
 }
 
+@layer components{
+    nav{
+        &.tw-main{
+            font-weight:700;
+            background-color: theme(colors.ngc-blue-hex);
+            background-color: theme(colors.ngc-blue-rgba);
+            background-color: theme(colors.ngc-blue-hsla);
+            color: #fff;
+            @apply tw-rounded;
+        }
+        &.tw-footer{
+            color:red;
+        }
+    }
+}
+
 @layer utilities{
     body{
         font-family: theme(fontFamily.opensans);

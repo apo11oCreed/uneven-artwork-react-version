@@ -10,9 +10,9 @@ class Menu extends Component {
 		return (
 			<>
 				<nav className={this.props.className}>
-					<ul>
-						<MenuLink />
-						<MenuLink />
+					<ul className="tw-px-4 tw-py-2">
+						<MenuLink displayText="Portfolio" />
+						<MenuLink displayText="About Natalie" />
 					</ul>
 				</nav>
 			</>
