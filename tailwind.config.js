@@ -46,6 +46,15 @@ module.exports = {
 			borderRadius: {
 				"4xl": "2rem",
 			},
+      keyframes: {
+        h1Spread: {
+          '0%': { letterSpacing: '0.75vw', opacity:0.0 },
+          '100%': { letterSpacing: '1vw', opacity:1.0 }
+        }
+      },
+      animation: {
+        h1Spread: 'h1Spread 1s ease-in-out 1'
+       }
 		},
 	},
 	prefix: "tw-",
