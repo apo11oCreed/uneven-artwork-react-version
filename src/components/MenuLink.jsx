@@ -3,23 +3,12 @@ import React, { Component } from "react";
 class MenuLink extends Component {
 	constructor(props) {
 		super(props);
-		this.handleClick = this.handleClick.bind(this);
 	}
-	
-	handleClick(){
-		const text=this.props.displayText;
-		if(text==='Portfolio'){
-			console.log('You just clicked on Portfolio');
-		} else {
-			console.log('You did NOT click on Portfolio');
-		}
-	}
-
 	render() {
 		return (
 			<>
 				<li>
-					<a href='#' onClick={this.handleClick} className="tw-underline tw-whitespace-nowrap">{this.props.displayText}</a>
+					<a href='#' onClick={() => this.props.passToMenuLink(this.props.displayText)} className="tw-underline tw-whitespace-nowrap">{this.props.displayText}</a>
 				</li>
 			</>
 		);

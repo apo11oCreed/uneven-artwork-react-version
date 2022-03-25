@@ -11,8 +11,8 @@ class Menu extends Component {
 			<>
 				<nav className={this.props.className}>
 					<ul>
-						<MenuLink displayText="Portfolio" />
-						<MenuLink displayText="About Natalie" />
+						<MenuLink displayText="Portfolio" passToMenuLink={this.props.passToMenu} />
+						<MenuLink displayText="About Natalie" passToMenuLink={this.props.passToMenu} />
 					</ul>
 				</nav>
 			</>
