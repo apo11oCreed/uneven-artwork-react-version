@@ -22,7 +22,7 @@ class App extends React.Component {
 		return (
 			<div className="tw-bg-left-top tw-bg-cover">
 				<Header getLinkText={this.updatePageState} />
-				<Main />
+				<Main page={this.state.page} />
 				<Footer getLinkText={this.updatePageState} />
 			</div>
 		);
