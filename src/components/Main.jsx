@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Gallery from "./Gallery";
-import Legal from "./Legal";
-import Artwork from "./Artwork";
+import About from "./About";
 
 class Main extends Component {
 	constructor(props) {
@@ -14,13 +13,9 @@ class Main extends Component {
 			return (
 				<Gallery />
 			);
-		} else if (this.props.page == "About Natalie") {
-			return (
-				<Legal />
-			);
 		} else {
 			return (
-				<Artwork />
+				<About />
 			);
 		}
 	}

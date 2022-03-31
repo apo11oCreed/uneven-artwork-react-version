@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import "./App.css";
+import imgUrl from './img/10475996-3x2-940x627.jpg'
 
 class App extends React.Component {
 	constructor() {
@@ -21,7 +22,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="tw-bg-left-top tw-bg-cover">
-				<Header getLinkText={this.updatePageState} />
+				<Header siteName="Natalie Correia" getLinkText={this.updatePageState} />
 				<Main page={this.state.page} />
 				<Footer getLinkText={this.updatePageState} />
 			</div>

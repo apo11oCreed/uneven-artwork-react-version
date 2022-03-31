@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Artwork from "./Artwork";
 
 class Gallery extends Component {
 	constructor(props) {
@@ -9,12 +10,7 @@ class Gallery extends Component {
 		return (
 			<>
 				<div className="gallery">
-					<div className="img" src="https://picsum.photos/200/300"></div>
-					<div className="img" src="https://picsum.photos/200/300"></div>
-					<div className="img" src="https://picsum.photos/200/300"></div>
-					<div className="img" src="https://picsum.photos/200/300"></div>
-					<div className="img" src="https://picsum.photos/200/300"></div>
-					<div className="img" src="https://picsum.photos/200/300"></div>
+					<Artwork />
 				</div>
 			</>
 		);

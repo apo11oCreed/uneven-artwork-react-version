@@ -36,7 +36,7 @@ module.exports = {
 			opensans: ["Open Sans", "sans-serif"],
 		},
 		backgroundImages: {
-			default: 'url("./10475996-3x2-940x627.jpeg")',
+			...(process.env.NODE_ENV === 'production' ? { default: 'url("../img/10475996-3x2-940x627.jpg")' } : { default: 'url("../img/10475996-3x2-940x627.jpg")' })
 		},
 		extend: {
 			spacing: {
