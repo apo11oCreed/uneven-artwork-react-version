@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import "./App.css";
-import imgUrl from './img/10475996-3x2-940x627.jpg';
+import ImgUrl from './img/10475996-3x2-940x627.jpg';
 
 class App extends React.Component {
 	constructor() {
