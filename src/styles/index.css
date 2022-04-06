@@ -16,6 +16,17 @@
 		background-color: theme(colors.splash-rgba);
 		background-color: theme(colors.splash-hsla);
 	}
+	.moveH1ToTop {
+		animation: moveH1ToTop 1s 1 ease!important;
+	}
+	@keyframes moveH1ToTop {
+		0% {
+		  bottom: 50%;
+		}
+		100% {
+		  bottom: calc(100% - 2rem);
+		}
+	}
 }
 
 @layer components {
@@ -61,9 +72,6 @@
 			}
 		}
 	}
-    .gallery{
-
-    }
 }
 
 @layer utilities{   

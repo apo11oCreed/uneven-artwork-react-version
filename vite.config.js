@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/assets/',
+  base: '',
   plugins: [react()],
   build: {
     rollupOptions: {
@@ -13,10 +13,10 @@ export default defineConfig({
           if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
             extType = 'img';
           }
-          return `assets/${extType}/[name]-[hash][extname]`;
+          return `/${extType}/[name]-[hash][extname]`;
         },
-        chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js',
+        chunkFileNames: '/js/[name]-[hash].js',
+        entryFileNames: '/js/[name]-[hash].js',
       }
     }
   }

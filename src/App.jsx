@@ -16,7 +16,9 @@ class App extends React.Component {
 
 	updatePageState(name) {
 		this.setState({page:name});
-    console.log(name);
+		let title=document.querySelector('h1');
+		title.classList.remove('tw-bottom-1/2');
+		title.classList.add('moveH1ToTop');
 	}
 
 	render() {
