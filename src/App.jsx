@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import "./App.css";
-import imgUrl from './img/10475996-3x2-940x627.jpg'
+import imgUrl from './img/10475996-3x2-940x627.jpg';
 
 class App extends React.Component {
 	constructor() {
@@ -15,10 +15,37 @@ class App extends React.Component {
 	}
 
 	updatePageState(name) {
-		this.setState({page:name});
-		let title=document.querySelector('h1');
-		title.classList.remove('tw-bottom-1/2');
-		title.classList.add('moveH1ToTop');
+
+		const title=document.querySelector('h1');
+
+		// Check if H1 has already animated to the top of the page
+		if(title.classList.contains('moveH1ToTop')){
+
+			this.setState({page:name});
+
+		} else {
+
+			const titleAnimation=title.animate([
+				{
+					bottom:'calc(100% - 6rem)',
+				},
+				],500,()=>{}
+			);
+	
+			title.classList.add('tw-will-change-auto');
+			titleAnimation.play();
+	
+			titleAnimation.addEventListener('finish',()=>{
+
+				title.classList.remove('tw-bottom-1/2');
+				title.classList.remove('tw-will-change-auto');
+				title.classList.add('moveH1ToTop');
+				this.setState({page:name});
+
+			});
+
+		}
+		
 	}
 
 	render() {

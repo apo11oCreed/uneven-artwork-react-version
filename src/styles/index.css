@@ -17,15 +17,15 @@
 		background-color: theme(colors.splash-hsla);
 	}
 	.moveH1ToTop {
-		animation: moveH1ToTop 1s 1 ease!important;
+		bottom: calc(100% - 6rem);
+		position: relative!important;
+		margin-bottom:1rem;
 	}
-	@keyframes moveH1ToTop {
-		0% {
-		  bottom: 50%;
-		}
-		100% {
-		  bottom: calc(100% - 2rem);
-		}
+	.galleryThreeCols{
+		flex-basis: theme(spacing.gallery-three-cols);
+	}
+	.galleryTwoCols{
+		flex-basis: theme(spacing.gallery-two-cols);
 	}
 }
 
@@ -33,8 +33,7 @@
 	body {
 		background-image: theme(backgroundImages.default);
 		font-family: theme(fontFamily.opensans);
-		@apply bg-splash;
-		@apply background-splash;
+		@apply bg-splash background-splash tw-mt-4;
 	}
 	header {
 		nav {

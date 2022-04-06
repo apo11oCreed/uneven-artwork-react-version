@@ -42,6 +42,8 @@ module.exports = {
 			spacing: {
 				128: "32rem",
 				144: "36rem",
+				'gallery-three-cols':'calc(33.333333% - 1rem)',
+				'gallery-two-cols':'calc(50% - 1rem)'
 			},
 			borderRadius: {
 				"4xl": "2rem",

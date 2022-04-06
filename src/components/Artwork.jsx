@@ -12,14 +12,15 @@ class Artwork extends Component {
 
 	render() {
 		return (
-			<ul className="tw-grid tw-grid-cols-2 tw-grid-rows-4 md:tw-grid-cols-4 md:tw-grid-rows-1">
+			// <ul className="tw-grid tw-grid-cols-2 tw-grid-rows-4 md:tw-grid-cols-3">
+        <ul className="tw-flex tw-flex-wrap tw-justify-between">
 				{/* <div className="img" src="https://picsum.photos/200/300"></div>
 					<div className="img" src="https://picsum.photos/200/300"></div>
 					<div className="img" src="https://picsum.photos/200/300"></div>
 					<div className="img" src="https://picsum.photos/200/300"></div>
 					<div className="img" src="https://picsum.photos/200/300"></div>
 					<div className="img" src="https://picsum.photos/200/300"></div> */}
-				<li>
+				<li className="galleryTwoCols md:galleryThreeCols">
           <picture>
             {/* Condition for webp */}
             {/* Condition for mobile */}
@@ -33,17 +34,17 @@ class Artwork extends Component {
             <img src={imgUrl1} alt="Mixed media of reference" />
           </picture>
         </li>
-				<li>
+				<li className="galleryTwoCols md:galleryThreeCols">
           <picture>
             <img src={imgUrl2} alt="Pencil illustration" />
           </picture>
         </li>
-				<li>
+				<li className="galleryTwoCols md:galleryThreeCols">
           <picture>
             <img src={imgUrl3} alt="Mixed media of reference" />
           </picture>
         </li>
-				<li>
+				<li className="galleryTwoCols md:galleryThreeCols">
           <picture>
             <img src={imgUrl4} alt="Painting of Sunflower" />
           </picture>
