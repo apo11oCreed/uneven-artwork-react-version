@@ -38,7 +38,7 @@
 	header {
 		nav {
 			&.tw-main {
-				@apply bg-blue;
+				@apply bg-blue tw-hidden sm:tw-block;
                 ul{
                     @apply tw-px-4 tw-py-2 tw-rounded;
                     li {
@@ -54,17 +54,20 @@
 	}
 	footer {
 		color: #fff;
-		@apply bg-blue;
-		nav {
-			@apply tw-px-10;
-			&.tw-footer {
-				ul {
-					@apply tw-flex tw-flex-row tw-ml-4;
-					li {
-						@apply tw-border-r first:tw-pr-4 last:tw-pl-4 last:tw-border-r-0;
-						a {
-							@apply tw-font-normal tw-text-sm;
-							color: #fff;
+		@apply bg-blue tw-py-[1rem] sm:tw-py-2;
+		&>div{
+			@apply tw-flex tw-flex-col-reverse sm:tw-flex-row;
+			nav {
+				@apply tw-px-10 tw-pb-[1rem] sm:tw-pb-0;
+				&.tw-footer {
+					ul {
+						@apply tw-flex tw-flex-row tw-ml-4;
+						li {
+							@apply tw-border-r first:tw-pr-4 last:tw-pl-4 last:tw-border-r-0;
+							a {
+								@apply tw-font-normal tw-text-sm;
+								color: #fff;
+							}
 						}
 					}
 				}
