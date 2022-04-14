@@ -30,12 +30,26 @@
 }
 
 @layer components {
+	html{
+		@media screen and (max-width:480px) and (orientation:portrait){
+			font-size: 62.5%;
+		}
+		@media screen and (max-width:975px){
+			font-size: 8px;
+		}
+		@media screen and (min-width:976px){
+			font-size: 62.5%;
+		}
+	}
 	body {
 		background-image: theme(backgroundImages.default);
 		font-family: theme(fontFamily.opensans);
 		@apply bg-splash background-splash tw-mt-4;
 	}
 	header {
+		h1{
+			font-size: 7.2rem;
+		}
 		nav {
 			&.tw-main {
 				@apply bg-blue tw-hidden sm:tw-block;
@@ -46,6 +60,7 @@
                         a {
                             @apply tw-font-bold tw-block;
                             color: #fff;
+							font-size:1.6rem;
                         }
                     }
                 }
@@ -57,6 +72,7 @@
 		@apply bg-blue tw-py-[1rem] sm:tw-py-2;
 		&>div{
 			@apply tw-flex tw-flex-col-reverse sm:tw-flex-row;
+			font-size:1.4rem;
 			nav {
 				@apply tw-px-10 tw-pb-[1rem] sm:tw-pb-0;
 				&.tw-footer {
@@ -65,7 +81,7 @@
 						li {
 							@apply tw-border-r first:tw-pr-4 last:tw-pl-4 last:tw-border-r-0;
 							a {
-								@apply tw-font-normal tw-text-sm;
+								@apply tw-font-normal;
 								color: #fff;
 							}
 						}

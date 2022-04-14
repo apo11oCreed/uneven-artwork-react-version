@@ -8,7 +8,6 @@ class Main extends Component {
 	}
 
 	render() {
-
 		if ((this.props.page == "Portfolio")) {
 			return (
 				<Gallery />

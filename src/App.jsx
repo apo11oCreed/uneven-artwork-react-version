@@ -14,6 +14,10 @@ class App extends React.Component {
     this.updatePageState=this.updatePageState.bind(this);
 	}
 
+	// pictures(array){
+	// 	return array;
+	// }
+
 	updatePageState(name) {
 
 		const title=document.querySelector('h1');
@@ -49,9 +53,11 @@ class App extends React.Component {
 	}
 
 	render() {
+		// const pics=['imgUrl1','imgUrl2','imgUrl3','imgUrl4'];
 		return (
 			<div className="tw-bg-left-top tw-bg-cover">
 				<Header siteName="Natalie Correia" getLinkText={this.updatePageState} />
+				{/* <Main page={this.state.page}>{ React.cloneElement('Artwork',{pictures: pics})}</Main> */}
 				<Main page={this.state.page} />
 				<Footer getLinkText={this.updatePageState} />
 			</div>

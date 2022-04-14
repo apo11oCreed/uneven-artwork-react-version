@@ -8,7 +8,7 @@ class Legal extends Component {
 	render() {
 		return (
 			<>
-				<p className="tw-text-sm">&copy;2022 Natalie Correia</p>
+				<p>&copy;2022 Natalie Correia</p>
 			</>
 		);
 	}

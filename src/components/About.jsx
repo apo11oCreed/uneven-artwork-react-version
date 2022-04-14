@@ -8,11 +8,11 @@ class About extends Component {
   
     render() {
       return (
-        <>
+        <main>
           <p>
               Checkout my plants!
           </p>
-        </>
+        </main>
       )
     }
   }
