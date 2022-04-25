@@ -69,7 +69,7 @@
 	}
 	footer {
 		color: #fff;
-		@apply bg-blue tw-py-[1rem] sm:tw-py-2;
+		@apply bg-blue tw-py-8 sm:tw-py-1;
 		&>div{
 			@apply tw-flex tw-flex-col-reverse sm:tw-flex-row;
 			font-size:1.4rem;
