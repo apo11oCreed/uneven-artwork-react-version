@@ -7,7 +7,7 @@ class MenuLink extends Component {
 	render() {
 		return (
 			<>
-				<li>
+				<li className={this.props.icon}>
 					<a href='#' onClick={() => this.props.passToMenuLink(this.props.displayText)} className="tw-underline tw-whitespace-nowrap">{this.props.displayText}</a>
 				</li>
 			</>

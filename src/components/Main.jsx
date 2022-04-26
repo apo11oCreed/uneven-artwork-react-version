@@ -8,15 +8,25 @@ class Main extends Component {
 	}
 
 	render() {
-		if ((this.props.page == "Portfolio")) {
-			return (
-				<Gallery />
-			);
-		} else {
-			return (
-				<About />
-			);
+		let page;
+
+		switch(this.props.page){
+			case 'Portfolio':
+				page = <Gallery />;
+			break;
+			case 'About Natalie':
+				page = <About />;
+			break;
+			default:
+				page = '';
+			break;
 		}
+		
+		return (
+			<main className="tw-container tw-mx-auto">
+				{page}
+			</main>
+		);
 	}
 }
 

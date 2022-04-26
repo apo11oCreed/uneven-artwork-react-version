@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class About extends Component {
+class Home extends Component {
     //   const [count, setCount] = useState(0)
     constructor(props) {
       super(props);
@@ -18,4 +18,4 @@ class About extends Component {
     }
   }
     
-export default About
+export default Home

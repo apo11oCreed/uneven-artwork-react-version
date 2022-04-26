@@ -8,11 +8,9 @@ class Gallery extends Component {
 	}
 	render() {
 		return (
-			<main>
-				<div className="gallery tw-container tw-mx-auto">
+				<section className="gallery">
 					<Artwork />
-				</div>
-			</main>
+				</section>
 		);
 	}
 }

@@ -46,10 +46,13 @@
 		font-family: theme(fontFamily.opensans);
 		@apply bg-splash background-splash tw-mt-4;
 	}
+	h1{
+		@apply tw-text-[7.2rem];
+	}
+	h2{
+		@apply tw-text-[3.6rem] tw-mb-6;
+	}
 	header {
-		h1{
-			font-size: 7.2rem;
-		}
 		nav {
 			&.tw-main {
 				@apply bg-blue tw-hidden sm:tw-block;
@@ -57,6 +60,19 @@
                     @apply tw-px-4 tw-py-2 tw-rounded;
                     li {
                         @apply hover:bg-pink first:-tw-mt-2 first:-tw-mx-4 first:tw-border-b first:tw-border-[#fff] first:tw-border-solid last:-tw-mb-2 last:-tw-mx-4 tw-px-4 tw-py-2;
+						&.home-link{
+							color:red;
+							&:after{
+								content:'';
+								background-image: theme(backgroundImages.default);
+								background-size:contain;
+								background-repeat: no-repeat;
+								background-position: center center;
+								display:block;
+								height:4rem;
+								width:4rem;
+							}
+						}
                         a {
                             @apply tw-font-bold tw-block;
                             color: #fff;
@@ -64,6 +80,26 @@
                         }
                     }
                 }
+			}
+		}
+	}
+	main {
+		section{
+			&.about{
+				background-color:theme(colors.ngc-blue-hex.700);
+				filter: darken(1);
+				color:white;
+				column-count:2;
+				@media screen and (max-width:480px) and (orientation:portrait){
+					column-count:1;
+				}
+				@apply tw-p-8;
+				h2{
+					column-span:all;
+				}
+				p{
+					@apply tw-text-[1.6rem] tw-leading-[1.45] tw-mb-6;
+				}
 			}
 		}
 	}
@@ -94,13 +130,28 @@
 
 @layer utilities{   
     .bg-blue {
-		background-color: theme(colors.ngc-blue-hex);
+		background-color: theme(colors.ngc-blue-hex.DEFAULT);
 		background-color: theme(colors.ngc-blue-rgba);
 		background-color: theme(colors.ngc-blue-hsla);
 	}
 	.bg-pink {
-		background-color: theme(colors.ngc-light-pink-hex);
+		background-color: theme(colors.ngc-light-pink-hex.DEFAULT);
 		background-color: theme(colors.ngc-light-pink-rgba);
 		background-color: theme(colors.ngc-light-pink-hsla);
+	}
+	.bg-green {
+		background-color: theme(colors.ngc-green-hex.DEFAULT);
+		background-color: theme(colors.ngc-green-rgba);
+		background-color: theme(colors.ngc-green-hsla);
+	}
+	.bg-orange {
+		background-color: theme(colors.ngc-orange-hex.DEFAULT);
+		background-color: theme(colors.ngc-orange-rgba);
+		background-color: theme(colors.ngc-orange-hsla);
+	}
+	.bg-dark-orange {
+		background-color: theme(colors.ngc-dark-orange-hex.DEFAULT);
+		background-color: theme(colors.ngc-dark-orange-rgba);
+		background-color: theme(colors.ngc-dark-orange-hsla);
 	}
 }
