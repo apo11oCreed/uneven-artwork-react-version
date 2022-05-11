@@ -4,7 +4,7 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 import "./App.css";
 import ImgUrl from "./img/10475996-3x2-940x627.jpg";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, HashRouter } from "react-router-dom";
 
 export default function App() {
 	// pictures(array){
@@ -22,14 +22,14 @@ export default function App() {
 	}, [home]);
 
 	return (
-		<Router>
+		<HashRouter>
 			<div className="tw-bg-left-top tw-bg-cover">
 				<Header siteName="Natalie Correia" />
 				{/* <Main page={this.state.page}>{ React.cloneElement('Artwork',{pictures: pics})}</Main> */}
 				<Main isHome={setHome} />
 				<Footer />
 			</div>
-		</Router>
+		</HashRouter>
 	);
 }
 
