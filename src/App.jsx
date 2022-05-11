@@ -1,68 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import "./App.css";
-import ImgUrl from './img/10475996-3x2-940x627.jpg';
+import ImgUrl from "./img/10475996-3x2-940x627.jpg";
+import { BrowserRouter as Router } from "react-router-dom";
 
-class App extends React.Component {
-	constructor() {
-    super();
-		this.state = {
-			page: "Home",
-		};
-    this.updatePageState=this.updatePageState.bind(this);
-	}
-
+export default function App() {
 	// pictures(array){
 	// 	return array;
 	// }
 
-	updatePageState(name) {
+	// const pics=['imgUrl1','imgUrl2','imgUrl3','imgUrl4'];
 
-		const title=document.querySelector('h1');
+	const [home, setHome] = useState(true);
 
-		// Check if H1 has already animated to the top of the page
-		if(title.classList.contains('moveH1ToTop')){
-
-			this.setState({page:name});
-
-		} else {
-
-			const titleAnimation=title.animate([
-				{
-					bottom:'calc(100% - 6rem)',
-				},
-				],500,()=>{}
-			);
-	
-			title.classList.add('tw-will-change-auto');
-			titleAnimation.play();
-	
-			titleAnimation.addEventListener('finish',()=>{
-
-				title.classList.remove('tw-bottom-1/2');
-				title.classList.remove('tw-will-change-auto');
-				title.classList.add('moveH1ToTop');
-				this.setState({page:name});
-
-			});
-
+	useEffect(() => {
+		if (!home) {
+			animateHp();
 		}
-		
-	}
+	}, [home]);
 
-	render() {
-		// const pics=['imgUrl1','imgUrl2','imgUrl3','imgUrl4'];
-		return (
+	return (
+		<Router>
 			<div className="tw-bg-left-top tw-bg-cover">
-				<Header siteName="Natalie Correia" getLinkText={this.updatePageState} />
+				<Header siteName="Natalie Correia" />
 				{/* <Main page={this.state.page}>{ React.cloneElement('Artwork',{pictures: pics})}</Main> */}
-				<Main page={this.state.page} />
-				<Footer getLinkText={this.updatePageState} />
+				<Main isHome={setHome} />
+				<Footer />
 			</div>
-		);
-	}
+		</Router>
+	);
 }
 
-export default App;
+function animateHp() {
+
+	const title = document.querySelector("h1");
+
+	//Check if H1 has already animated to the top of the page
+	if (title.classList.contains("moveH1ToTop")) {
+	} else {
+		const titleAnimation = title.animate(
+			[
+				{
+					bottom: "calc(100% - 6rem)",
+				},
+			],
+			500,
+			() => {}
+		);
+
+		title.classList.add("tw-will-change-auto");
+		titleAnimation.play();
+
+		titleAnimation.addEventListener("finish", () => {
+			title.classList.remove("tw-bottom-1/2");
+			title.classList.remove("tw-will-change-auto");
+			title.classList.add("moveH1ToTop");
+		});
+	}
+}

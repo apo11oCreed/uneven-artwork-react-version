@@ -1,33 +1,26 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import Gallery from "./Gallery";
 import About from "./About";
+import Home from "./Home";
+import { Route, Switch, useLocation } from "react-router-dom";
 
-class Main extends Component {
-	constructor(props) {
-		super(props);
-	}
+export default function Main(props) {
 
-	render() {
-		let page;
+	const location = useLocation();
 
-		switch(this.props.page){
-			case 'Portfolio':
-				page = <Gallery />;
-			break;
-			case 'About Natalie':
-				page = <About />;
-			break;
-			default:
-				page = '';
-			break;
-		}
-		
-		return (
-			<main className="tw-container tw-mx-auto">
-				{page}
-			</main>
-		);
-	}
+	useEffect(() => {
+
+		props.isHome(location.pathname=='/'?true:false);
+
+	},[location]);
+
+	return (
+		<main className="tw-container tw-mx-auto">
+			<Switch>
+				<Route path="/about" component={About} />
+				<Route path="/portfolio" component={Gallery} />
+				<Route exact path="/" component={Home} />
+			</Switch>
+		</main>
+	);
 }
-
-export default Main;

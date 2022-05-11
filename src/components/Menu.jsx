@@ -1,24 +1,25 @@
-import React, { Component } from "react"
-import MenuLink from './MenuLink'
+import { NavLink } from "react-router-dom";
 
-class Menu extends Component {
-	constructor(props) {
-		super(props);
-	}
-
-	render() {
-		return (
-			<>
-				<nav className={this.props.className}>
-					<ul>
-						<MenuLink displayText="Home" icon="home-link" passToMenuLink={this.props.passToMenu} />
-						<MenuLink displayText="Portfolio" passToMenuLink={this.props.passToMenu} />
-						<MenuLink displayText="About Natalie" passToMenuLink={this.props.passToMenu} />
-					</ul>
-				</nav>
-			</>
-		);
-	}
+export default function Menu(props) {
+	return (
+		<nav className={props.className}>
+			<ul>
+				<li className="home-link">
+					<NavLink exact to={{pathname:'/'}} icon="home-link" activeClassName="tw-font-bold" className="tw-underline tw-whitespace-nowrap">
+						Home
+					</NavLink>
+				</li>
+				<li>
+					<NavLink to={{pathname:'/portfolio'}} activeClassName="tw-font-bold" className="tw-underline tw-whitespace-nowrap">
+						Portfolio
+					</NavLink>
+				</li>
+				<li>
+					<NavLink to={{pathname:'/about'}} activeClassName="tw-font-bold" className="tw-underline tw-whitespace-nowrap">
+						About Natalie
+					</NavLink>
+				</li>
+			</ul>
+		</nav>
+	);
 }
-
-export default Menu;

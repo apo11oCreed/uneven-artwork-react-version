@@ -74,7 +74,7 @@
 							}
 						}
                         a {
-                            @apply tw-font-bold tw-block;
+                            @apply tw-block;
                             color: #fff;
 							font-size:1.6rem;
                         }
