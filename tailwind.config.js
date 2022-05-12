@@ -40,6 +40,10 @@ module.exports = {
 			"ngc-dark-orange-hsla": "hsla(15, 68, 51, 1)",
 			"ngc-light-pink-hsla": "hsla(12, 52, 89, 1)",
 		},
+		gridTemplateColumns: {
+			// Simple 16 column grid
+			'minmax10': 'repeat(3, minmax(10rem, 1fr))'
+		  },
 		fontFamily: {
 			opensans: ["Open Sans", "sans-serif"],
 		},

@@ -57,26 +57,29 @@
 			&.tw-main {
 				@apply tw-hidden sm:tw-block;
                 ul{
-                    @apply bg-blue tw-px-[2rem] tw-py-[1rem] tw-rounded tw-flex tw-flex-row tw-mx-auto tw-items-start tw-content-start tw-justify-between tw-w-[30rem];
+                    @apply bg-blue tw-px-[2rem] tw-pb-[1.5rem] tw-pt-[1rem] tw-rounded-bl-lg tw-rounded-br-lg tw-grid tw-grid-rows-1 tw-w-fit tw-mx-auto;
+					grid-template-columns: theme(gridTemplateColumns.minmax10);
                     li {
 						a {
-                            @apply tw-block tw-leading-none;
+                            @apply tw-block tw-leading-none tw-text-center;
                             color: #fff;
 							font-size:1.6rem;
                         }
 						&.home-link{
-							/*a {
+							@apply tw-flex-grow;
+							a {
 								@apply tw-block tw-relative;
 								&:after{
-									@apply tw-absolute tw-top-0 tw-left-0 tw-w-12 tw-h-12;
+									@apply tw-absolute tw-top-0 tw-left-0 tw-w-[3rem] tw-h-[2rem];
 									content:'';
 									background-image: theme(backgroundImages.default);
 									background-size:contain;
 									background-repeat: no-repeat;
 									background-position: center center;
 									display:block;
+									width: 100%;
 								}
-							}*/
+							}
 						}
                     }
                 }
