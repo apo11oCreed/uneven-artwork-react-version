@@ -55,29 +55,29 @@
 	header {
 		nav {
 			&.tw-main {
-				@apply bg-blue tw-hidden sm:tw-block;
+				@apply tw-hidden sm:tw-block;
                 ul{
-                    @apply tw-px-4 tw-py-2 tw-rounded;
+                    @apply bg-blue tw-px-[2rem] tw-py-[1rem] tw-rounded tw-flex tw-flex-row tw-mx-auto tw-items-start tw-content-start tw-justify-between tw-w-[30rem];
                     li {
-                        @apply hover:bg-pink first:-tw-mt-2 first:-tw-mx-4 first:tw-border-b first:tw-border-[#fff] first:tw-border-solid last:-tw-mb-2 last:-tw-mx-4 tw-px-4 tw-py-2;
-						&.home-link{
-							color:red;
-							&:after{
-								content:'';
-								background-image: theme(backgroundImages.default);
-								background-size:contain;
-								background-repeat: no-repeat;
-								background-position: center center;
-								display:block;
-								height:4rem;
-								width:4rem;
-							}
-						}
-                        a {
-                            @apply tw-block;
+						a {
+                            @apply tw-block tw-leading-none;
                             color: #fff;
 							font-size:1.6rem;
                         }
+						&.home-link{
+							/*a {
+								@apply tw-block tw-relative;
+								&:after{
+									@apply tw-absolute tw-top-0 tw-left-0 tw-w-12 tw-h-12;
+									content:'';
+									background-image: theme(backgroundImages.default);
+									background-size:contain;
+									background-repeat: no-repeat;
+									background-position: center center;
+									display:block;
+								}
+							}*/
+						}
                     }
                 }
 			}
@@ -128,7 +128,10 @@
 	}
 }
 
-@layer utilities{   
+@layer utilities{
+	.sr{
+		display:none;
+	}
     .bg-blue {
 		background-color: theme(colors.ngc-blue-hex.DEFAULT);
 		background-color: theme(colors.ngc-blue-rgba);
