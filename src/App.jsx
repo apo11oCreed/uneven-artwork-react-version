@@ -12,11 +12,21 @@ export default function App() {
 	// }
 
 	// const pics=['imgUrl1','imgUrl2','imgUrl3','imgUrl4'];
+	// const contentful=require('contentful');
+	const contentful=import.meta.env;
+	const spaceId=contentful.VITE_CONTENTFUL_SPACE_ID;
+	const accessToken=contentful.VITE_CONTENTFUL_DELIVERY_API_ACCESS_TOKEN;
+	
 
-	const [home, setHome] = useState(true);
+	const [home, setHome] = useState('/');
 
 	useEffect(() => {
-		if (!home) {
+
+		if(sessionStorage.getItem("animeRan")=='yes'){
+			console.log('animeRan exists');
+			initAnimate();
+		} else {
+			console.log('animeRan does not exist');
 			animateHp();
 		}
 	}, [home]);
@@ -33,30 +43,62 @@ export default function App() {
 	);
 }
 
+function initAnimate(){
+
+	const body=document.querySelector('body');
+	const navTitle = document.querySelector("nav#futureH1");
+	
+	navTitle.classList.remove("-tw-top-10");
+	navTitle.classList.remove("tw-will-change-auto");
+	navTitle.classList.add("moveNavDown");
+}
+
 function animateHp() {
 
-	const title = document.querySelector("h1");
+	const currentH1 = document.querySelector("h1");
+	const navTitle = document.querySelector("nav#futureH1");
+	//currentH1.classList.add("tw-animate-h1Spread");
 
-	//Check if H1 has already animated to the top of the page
-	if (title.classList.contains("moveH1ToTop")) {
-	} else {
-		const titleAnimation = title.animate(
+		const titleAnimation = currentH1.animate(
 			[
 				{
-					bottom: "calc(100% - 6rem)",
+					bottom: "calc(100% - 14rem)",
+					opacity: "0"
+				},
+			],
+			1000,
+			() => {}
+		);
+
+		const futureTitleAnimation = navTitle.animate(
+			[
+				{
+					top:"0"
 				},
 			],
 			500,
 			() => {}
 		);
 
-		title.classList.add("tw-will-change-auto");
+		currentH1.classList.add("tw-will-change-auto");
+		navTitle.classList.add("tw-will-change-auto");
+
 		titleAnimation.play();
+		futureTitleAnimation.play();
 
 		titleAnimation.addEventListener("finish", () => {
-			title.classList.remove("tw-bottom-1/2");
-			title.classList.remove("tw-will-change-auto");
-			title.classList.add("moveH1ToTop");
+			currentH1.classList.remove("tw-bottom-1/2");
+			currentH1.classList.remove("tw-will-change-auto");
+			currentH1.classList.add("moveH1ToTop");
+
 		});
+
+		futureTitleAnimation.addEventListener("finish", () => {
+			navTitle.classList.remove("-tw-top-10");
+			navTitle.classList.remove("tw-will-change-auto");
+			navTitle.classList.add("moveNavDown");
+		});
+
+		sessionStorage.setItem("animeRan", 'yes');
+
 	}
-}

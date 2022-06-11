@@ -2,7 +2,9 @@ import { NavLink } from "react-router-dom";
 
 export default function Menu(props) {
 	return (
-		<nav className={props.className}>
+		<nav id="futureH1" className={props.className}>
+			<p className="tw-font-bold">Natalie Correia </p>
+			<hr />
 			<ul>
 				<li>
 					<NavLink to={{pathname:'/portfolio'}} activeClassName="tw-font-bold" className="tw-underline tw-whitespace-nowrap">

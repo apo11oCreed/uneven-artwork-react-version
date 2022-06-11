@@ -10,7 +10,7 @@ export default function Main(props) {
 
 	useEffect(() => {
 
-		props.isHome(location.pathname=='/'?true:false);
+		props.isHome(location.pathname);
 
 	},[location]);
 

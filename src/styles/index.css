@@ -16,16 +16,28 @@
 		background-color: theme(colors.splash-rgba);
 		background-color: theme(colors.splash-hsla);
 	}
-	.moveH1ToTop {
-		bottom: calc(100% - 6rem);
-		position: relative!important;
-		margin-bottom:1rem;
-	}
 	.galleryThreeCols{
 		flex-basis: theme(spacing.gallery-three-cols);
 	}
 	.galleryTwoCols{
 		flex-basis: theme(spacing.gallery-two-cols);
+	}
+	/* animations */
+	.not-homepage{
+		.moveH1ToTop {
+			bottom: calc(100% - 6rem);
+			position: relative!important;
+			margin-bottom:1rem;
+			opacity: 0;
+		}
+		.moveNavDown{
+			top:0;
+		}
+		header{
+			h1{
+				opacity:0;
+			}
+		}
 	}
 }
 
@@ -44,7 +56,10 @@
 	body {
 		background-image: theme(backgroundImages.default);
 		font-family: theme(fontFamily.opensans);
-		@apply bg-splash background-splash tw-mt-4;
+		@apply bg-splash background-splash;
+	}
+	#root{
+		@apply tw-mt-[4rem];
 	}
 	h1{
 		@apply tw-text-[7.2rem];
@@ -55,9 +70,18 @@
 	header {
 		nav {
 			&.tw-main {
-				@apply tw-hidden sm:tw-block;
+				@apply tw-hidden sm:tw-block bg-blue tw-px-[2rem] tw-pb-[1.5rem] tw-pt-[1rem] tw-rounded-bl-lg tw-rounded-br-lg tw-w-fit tw-mx-auto -tw-translate-x-2/4 tw-left-2/4;
+				p{
+					@apply tw-block tw-leading-none tw-text-center;
+					color: #fff;
+					font-size:1.6rem;
+				}
+				hr{
+					@apply tw-h-0 tw-bg-none tw-border-none tw-my-4;
+					box-shadow: theme(boxShadow.hr-white);
+				}
                 ul{
-                    @apply bg-blue tw-px-[2rem] tw-pb-[1.5rem] tw-pt-[1rem] tw-rounded-bl-lg tw-rounded-br-lg tw-grid tw-grid-rows-1 tw-w-fit tw-mx-auto;
+                    @apply tw-grid tw-grid-rows-1;
 					grid-template-columns: theme(gridTemplateColumns.minmax10);
                     li {
 						a {

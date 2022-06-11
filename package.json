@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.2",
-    "dotenv": "^16.0.0",
+    "contentful": "^9.1.29",
+    "dotenv": "^16.0.1",
     "env-cmd": "^10.1.0",
     "gh-pages": "^3.2.3",
     "react": "^17.0.2",
