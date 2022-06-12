@@ -52,7 +52,7 @@
 	}
 	header {
 		nav {
-			top:-10rem;
+			top:-20rem;
 			@apply tw-absolute;
 			&.moveNavDown {
 				top:0;
