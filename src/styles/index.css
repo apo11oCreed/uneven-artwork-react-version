@@ -22,23 +22,6 @@
 	.galleryTwoCols{
 		flex-basis: theme(spacing.gallery-two-cols);
 	}
-	/* animations */
-	.not-homepage{
-		.moveH1ToTop {
-			bottom: calc(100% - 6rem);
-			position: relative!important;
-			margin-bottom:1rem;
-			opacity: 0;
-		}
-		.moveNavDown{
-			top:0;
-		}
-		header{
-			h1{
-				opacity:0;
-			}
-		}
-	}
 }
 
 @layer components {
@@ -69,6 +52,12 @@
 	}
 	header {
 		nav {
+			top:-10rem;
+			@apply tw-absolute;
+			&.moveNavDown {
+				top:0;
+				@apply tw-fixed;
+			}
 			&.tw-main {
 				@apply tw-hidden sm:tw-block bg-blue tw-px-[2rem] tw-pb-[1.5rem] tw-pt-[1rem] tw-rounded-bl-lg tw-rounded-br-lg tw-w-fit tw-mx-auto -tw-translate-x-2/4 tw-left-2/4;
 				p{

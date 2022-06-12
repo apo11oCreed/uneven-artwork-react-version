@@ -13,22 +13,26 @@ export default function App() {
 
 	// const pics=['imgUrl1','imgUrl2','imgUrl3','imgUrl4'];
 	// const contentful=require('contentful');
+
+	// UX details
+	// On homepage entry, title should fade in and expand
+	// On homepage exit, title should fade out and collapse
+
 	const contentful=import.meta.env;
 	const spaceId=contentful.VITE_CONTENTFUL_SPACE_ID;
 	const accessToken=contentful.VITE_CONTENTFUL_DELIVERY_API_ACCESS_TOKEN;
-	
 
 	const [home, setHome] = useState('/');
 
 	useEffect(() => {
 
 		if(sessionStorage.getItem("animeRan")=='yes'){
-			console.log('animeRan exists');
 			initAnimate();
 		} else {
-			console.log('animeRan does not exist');
 			animateHp();
 		}
+
+		console.log(home);
 	}, [home]);
 
 	return (
@@ -45,19 +49,30 @@ export default function App() {
 
 function initAnimate(){
 
-	const body=document.querySelector('body');
+	console.log('initAnimate initiated');
+
 	const navTitle = document.querySelector("nav#futureH1");
-	
-	navTitle.classList.remove("-tw-top-10");
-	navTitle.classList.remove("tw-will-change-auto");
-	navTitle.classList.add("moveNavDown");
+	const navTitleAnimate = navTitle.animate(
+			[
+				{
+					top: "0"
+				},
+			],
+			500,
+			() => {}
+		);
+
+	navTitleAnimate.play();
+	navTitleAnimate.onfinish=()=>{
+		navTitle.classList.add("moveNavDown");
+	}
 }
 
 function animateHp() {
 
+	console.log('currentH1 initiated');
+
 	const currentH1 = document.querySelector("h1");
-	const navTitle = document.querySelector("nav#futureH1");
-	//currentH1.classList.add("tw-animate-h1Spread");
 
 		const titleAnimation = currentH1.animate(
 			[
@@ -70,35 +85,17 @@ function animateHp() {
 			() => {}
 		);
 
-		const futureTitleAnimation = navTitle.animate(
-			[
-				{
-					top:"0"
-				},
-			],
-			500,
-			() => {}
-		);
-
 		currentH1.classList.add("tw-will-change-auto");
-		navTitle.classList.add("tw-will-change-auto");
 
 		titleAnimation.play();
-		futureTitleAnimation.play();
-
-		titleAnimation.addEventListener("finish", () => {
+		titleAnimation.onfinish=()=>{
 			currentH1.classList.remove("tw-bottom-1/2");
 			currentH1.classList.remove("tw-will-change-auto");
 			currentH1.classList.add("moveH1ToTop");
-
-		});
-
-		futureTitleAnimation.addEventListener("finish", () => {
-			navTitle.classList.remove("-tw-top-10");
-			navTitle.classList.remove("tw-will-change-auto");
-			navTitle.classList.add("moveNavDown");
-		});
+		}
 
 		sessionStorage.setItem("animeRan", 'yes');
+
+		initAnimate();
 
 	}
