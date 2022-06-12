@@ -27,9 +27,9 @@ export default function App() {
 	useEffect(() => {
 
 		if(sessionStorage.getItem("animeRan")=='yes'){
-			initAnimate();
+			mainMenuAnimate();
 		} else {
-			animateHp();
+			titleAnimate();
 		}
 
 		console.log(home);
@@ -38,7 +38,7 @@ export default function App() {
 	return (
 		<HashRouter>
 			<div className="tw-bg-left-top tw-bg-cover">
-				<Header siteName="Natalie Correia" />
+				<Header page={home} siteName="Natalie Correia" />
 				{/* <Main page={this.state.page}>{ React.cloneElement('Artwork',{pictures: pics})}</Main> */}
 				<Main isHome={setHome} />
 				<Footer />
@@ -47,9 +47,9 @@ export default function App() {
 	);
 }
 
-function initAnimate(){
+function mainMenuAnimate(){
 
-	console.log('initAnimate initiated');
+	console.log('mainMenuAnimate initiated');
 
 	const navTitle = document.querySelector("nav#futureH1");
 	const navTitleAnimate = navTitle.animate(
@@ -68,34 +68,34 @@ function initAnimate(){
 	}
 }
 
-function animateHp() {
+function titleAnimate() {
 
-	console.log('currentH1 initiated');
+	console.log('titleAnimate initiated');
 
-	const currentH1 = document.querySelector("h1");
+	const title = document.querySelector("#titleAnimate");
 
-		const titleAnimation = currentH1.animate(
+		const titleAnimation = title.animate(
 			[
 				{
-					bottom: "calc(100% - 14rem)",
-					opacity: "0"
+					letterSpacing: '20px'
 				},
 			],
 			1000,
 			() => {}
 		);
 
-		currentH1.classList.add("tw-will-change-auto");
+		title.classList.add("tw-will-change-auto");
 
 		titleAnimation.play();
 		titleAnimation.onfinish=()=>{
-			currentH1.classList.remove("tw-bottom-1/2");
-			currentH1.classList.remove("tw-will-change-auto");
-			currentH1.classList.add("moveH1ToTop");
+			title.classList.remove("tw-will-change-auto");
+			title.classList.add("titleTextSpread");
 		}
 
 		sessionStorage.setItem("animeRan", 'yes');
 
-		initAnimate();
+		setTimeout(()=>{
+			mainMenuAnimate();
+		},1000);
 
 	}

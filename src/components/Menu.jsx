@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export default function Menu(props) {
 	return (
 		<nav id="futureH1" className={props.className}>
-			<p className="tw-font-bold">Natalie Correia </p>
+			<h1 className="tw-font-bold">Natalie Correia | Uneven Artwork</h1>
 			<hr />
 			<ul>
 				<li>

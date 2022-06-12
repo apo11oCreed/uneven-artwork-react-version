@@ -44,8 +44,17 @@
 	#root{
 		@apply tw-mt-[4rem];
 	}
-	h1{
+	#titleAnimate{
 		@apply tw-text-[7.2rem];
+		letter-spacing: normal;
+		&.titleTextSpread{
+			letter-spacing:20px;
+		}
+	}
+	h1{
+		@apply tw-text-center;
+		color: #fff;
+		font-size:1.6rem;
 	}
 	h2{
 		@apply tw-text-[3.6rem] tw-mb-6;
