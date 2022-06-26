@@ -36,13 +36,28 @@
 			font-size: 62.5%;
 		}
 	}
-	body {
-		background-image: theme(backgroundImages.default);
-		font-family: theme(fontFamily.opensans);
-		@apply bg-splash background-splash;
+	body.backgroundFadeOut:before{
+		opacity:0.0!important;
 	}
+	body{
+		@apply bg-splash background-splash;
+		&:before {
+			background-image: theme(backgroundImages.default);
+			font-family: theme(fontFamily.opensans);
+			@apply bg-splash background-splash;
+			z-index:-1;
+			position:fixed;
+			display:block;
+			top:0;
+			width:100%;
+			height:100%;
+			content:'';
+			opacity:1.0;
+		}
+	}
+
 	#root{
-		@apply tw-mt-[4rem];
+		@apply tw-mt-[8rem];
 	}
 	#titleAnimate{
 		@apply tw-text-[7.2rem];
@@ -63,6 +78,7 @@
 		nav {
 			top:-20rem;
 			@apply tw-absolute;
+			box-shadow:0 0 4px 2px rgb(0 0 0 / 16%);
 			&.moveNavDown {
 				top:0;
 				@apply tw-fixed;

@@ -1,7 +1,7 @@
 import Menu from "./Menu";
 
 export default function Header(props) {
-	console.log(props);
+	//console.log(props);
 	const {siteName,page}=props;
 
 	return (

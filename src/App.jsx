@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
@@ -22,18 +23,20 @@ export default function App() {
 	const spaceId=contentful.VITE_CONTENTFUL_SPACE_ID;
 	const accessToken=contentful.VITE_CONTENTFUL_DELIVERY_API_ACCESS_TOKEN;
 
-	const [home, setHome] = useState('/');
+	const [home, setHome] = useState('');
 
-	useEffect(() => {
-
-		if(sessionStorage.getItem("animeRan")=='yes'){
-			mainMenuAnimate();
-		} else {
+	if(home=='/'){
+		useEffect(()=>{
 			titleAnimate();
-		}
+		},[home]);
 
-		console.log(home);
-	}, [home]);
+	} else {
+
+		useEffect(()=>{
+			mainMenuAnimate();
+		},[home]);
+
+	}
 
 	return (
 		<HashRouter>
