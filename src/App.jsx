@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
@@ -23,17 +22,21 @@ export default function App() {
 	const spaceId=contentful.VITE_CONTENTFUL_SPACE_ID;
 	const accessToken=contentful.VITE_CONTENTFUL_DELIVERY_API_ACCESS_TOKEN;
 
-	const [home, setHome] = useState('');
+	const [home, setHome] = useState('/');
 
 	if(home=='/'){
 		useEffect(()=>{
+
 			titleAnimate();
+
 		},[home]);
 
 	} else {
 
 		useEffect(()=>{
+
 			mainMenuAnimate();
+			
 		},[home]);
 
 	}
@@ -43,7 +46,7 @@ export default function App() {
 			<div className="tw-bg-left-top tw-bg-cover">
 				<Header page={home} siteName="Natalie Correia" />
 				{/* <Main page={this.state.page}>{ React.cloneElement('Artwork',{pictures: pics})}</Main> */}
-				<Main isHome={setHome} />
+				<Main isHome={setHome} page={home} />
 				<Footer />
 			</div>
 		</HashRouter>
@@ -51,8 +54,6 @@ export default function App() {
 }
 
 function mainMenuAnimate(){
-
-	console.log('mainMenuAnimate initiated');
 
 	const navTitle = document.querySelector("nav#futureH1");
 	const navTitleAnimate = navTitle.animate(
@@ -71,9 +72,12 @@ function mainMenuAnimate(){
 	}
 }
 
-function titleAnimate() {
+function fadeBackground(){
+	const bg=document.querySelector('body');
+	bg.setAttribute('class','test1');
+}
 
-	console.log('titleAnimate initiated');
+function titleAnimate() {
 
 	const title = document.querySelector("#titleAnimate");
 
@@ -95,8 +99,7 @@ function titleAnimate() {
 			title.classList.add("titleTextSpread");
 		}
 
-		sessionStorage.setItem("animeRan", 'yes');
-
+		//sessionStorage.setItem("animeRan", 'yes');
 		setTimeout(()=>{
 			mainMenuAnimate();
 		},1000);
