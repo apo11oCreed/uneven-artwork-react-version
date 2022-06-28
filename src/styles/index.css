@@ -174,8 +174,8 @@
 						/*background-color:theme(colors.ngc-blue-hex.700);
 						filter: darken(1);*/
 						color:#000000;
-						column-count:2;
-						column-gap: 6rem;
+						/* column-count:2;
+						column-gap: 6rem; */
 						@media screen and (max-width:480px) and (orientation:portrait){
 							column-count:1;
 						}
@@ -185,6 +185,11 @@
 						}
 						p{
 							@apply tw-text-[1.6rem] tw-leading-[1.45] tw-mb-6;
+						}
+						img{
+							margin:4rem 0;
+							border-bottom:1px solid black;
+							padding-bottom:4rem;
 						}
 					}
 				}
