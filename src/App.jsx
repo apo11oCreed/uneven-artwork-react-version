@@ -21,8 +21,43 @@ export default function App() {
 	const contentful=import.meta.env;
 	const spaceId=contentful.VITE_CONTENTFUL_SPACE_ID;
 	const accessToken=contentful.VITE_CONTENTFUL_DELIVERY_API_ACCESS_TOKEN;
+	const query = `
+	{
+		imageCollection{
+		 items{
+		   image{
+			 fileName
+			 url
+		   }
+		 }
+	   }
+	 }
+	`;
 
 	const [home, setHome] = useState('/');
+	const [data, setData] = useState({});
+
+	useEffect(()=>{
+
+		async function dataTwo(){
+			const dataOne = await fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/master`,{
+			method:'POST',
+			headers:{
+				"content-type": "application/json",
+				Authorization: `Bearer ${accessToken}`
+			},
+			body: JSON.stringify({
+				query
+			})
+		})
+		.then(res => res.json())
+		.then(response=>{
+			const { data } = response;
+			setData(data);
+		});
+		}
+		dataTwo();
+	},[data])
 
 	if(home=='/'){
 		useEffect(()=>{
@@ -46,7 +81,7 @@ export default function App() {
 			<div className="tw-bg-left-top tw-bg-cover">
 				<Header page={home} siteName="Natalie Correia" />
 				{/* <Main page={this.state.page}>{ React.cloneElement('Artwork',{pictures: pics})}</Main> */}
-				<Main isHome={setHome} page={home} />
+				<Main isHome={setHome} page={home} data={data} />
 				<Footer />
 			</div>
 		</HashRouter>

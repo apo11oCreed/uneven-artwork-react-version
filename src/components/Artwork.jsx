@@ -12,19 +12,23 @@ class Artwork extends Component {
     this.state={
       imageIsReady:false,
     }
-    this.imgArray=[ImgUrl1,ImgUrl2,ImgUrl3,ImgUrl4];
+    console.log(this.props);
+    this.imgArray=this.props.items.items;
     this.imgQty=this.imgArray.length;
     this.counter=0;
     this.incrementCounter=this.incrementCounter.bind(this);
+
 	}
 
   componentDidMount(){
 
     for(let i=0;i<this.imgArray.length;i++){
 
+      console.log(this.imgArray[i].image.url);
+
       const img = new Image();
 
-      img.src=this.imgArray[i];
+      img.src=this.imgArray[i].image.url;
 
       if(img.complete){
 
@@ -65,14 +69,18 @@ class Artwork extends Component {
       return (
         // <ul className="tw-grid tw-grid-cols-2 tw-grid-rows-4 md:tw-grid-cols-3">
           <ul className="tw-flex tw-flex-wrap tw-justify-between">
+            {this.imgArray.map((item,index)=>{
+              return <li key={index} className="galleryTwoCols md:galleryThreeCols"><img src={item.image.url} /></li>
+            })}
           {/* <div className="img" src="https://picsum.photos/200/300"></div>
             <div className="img" src="https://picsum.photos/200/300"></div>
             <div className="img" src="https://picsum.photos/200/300"></div>
             <div className="img" src="https://picsum.photos/200/300"></div>
             <div className="img" src="https://picsum.photos/200/300"></div>
             <div className="img" src="https://picsum.photos/200/300"></div> */}
-          <li className="galleryTwoCols md:galleryThreeCols">
-            <picture>
+
+          {/* <li className="galleryTwoCols md:galleryThreeCols">
+            <picture> */}
               {/* Condition for webp */}
               {/* Condition for mobile */}
               {/* Condition for tablet */}
@@ -82,7 +90,7 @@ class Artwork extends Component {
                         <source srcset="./images/022222_ncorreia_illustration_colored-pencil_480.jpg" media="(min-width:480px)" type="image/jpeg" />
                         <source srcset="./images/022222_ncorreia_illustration_colored-pencil_320.jpg" type="image/jpeg" />
                         <source srcset="./images/022222_ncorreia_illustration_colored-pencil.webp" type="image/webp" /> */}
-              <img src={ImgUrl1} alt="Mixed media of reference" />
+              {/* <img src={ImgUrl1} alt="Mixed media of reference" />
             </picture>
           </li>
           <li className="galleryTwoCols md:galleryThreeCols">
@@ -99,7 +107,7 @@ class Artwork extends Component {
             <picture>
               <img src={ImgUrl4} alt="Painting of Sunflower" />
             </picture>
-          </li>
+          </li> */}
         </ul>
 
       );
