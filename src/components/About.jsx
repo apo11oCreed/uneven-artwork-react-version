@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function About() {
+	console.log('ABOUT');
 	return (
 		<section className="about">
 			<h2 className="tw-text-black tw-font-bold">About Me</h2>

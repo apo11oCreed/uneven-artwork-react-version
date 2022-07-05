@@ -5,21 +5,27 @@ import Home from "./Home";
 import { Route, Switch, useLocation } from "react-router-dom";
 
 export default function Main(props) {
-	console.log(props);
-	const location = useLocation();
 
-	let page='';
+	const location = useLocation();
+	const { setPage } = props;
+
+	let pageClass = '';
 
 	useEffect(() => {
 
-		props.isHome(location.pathname);
+		setPage(location.pathname);
 
-	},[location]);
+		if (location.pathname == '/') {
+			titleAnimate();
+		}
+		else {
+			mainMenuAnimate();
+		}
 
-	page=location.pathname=='/'?'home':'not-home';
+	}, [location]);
 
 	return (
-		<main className={`tw-container tw-mx-auto ${page}`}>
+		<main className={`tw-container tw-mx-auto ${pageClass=location.pathname=='/'?'home':'not-home'}`}>
 			<Switch>
 				<Route path="/about" component={About} />
 				<Route path="/portfolio" render={props => <Gallery {...props} />} />
@@ -27,4 +33,45 @@ export default function Main(props) {
 			</Switch>
 		</main>
 	);
+}
+
+function titleAnimate() {
+
+	const title = document.querySelector("#titleAnimate");
+	const titleAnimation = title.animate(
+		[{
+			letterSpacing: "20px",
+		}, ],
+		1000,
+		() => {}
+	);
+
+	title.classList.add("tw-will-change-auto");
+
+	titleAnimation.play();
+	titleAnimation.onfinish = () => {
+		title.classList.remove("tw-will-change-auto");
+		title.classList.add("titleTextSpread");
+	};
+
+	setTimeout(() => {
+		mainMenuAnimate();
+	}, 1000);
+}
+
+function mainMenuAnimate() {
+
+	const navTitle = document.querySelector("nav#futureH1");
+	const navTitleAnimate = navTitle.animate(
+		[{
+			top: "0",
+		}, ],
+		500,
+		() => {}
+	);
+
+	navTitleAnimate.play();
+	navTitleAnimate.onfinish = () => {
+		navTitle.classList.add("moveNavDown");
+	};
 }

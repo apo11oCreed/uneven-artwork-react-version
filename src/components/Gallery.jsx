@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import Artwork from "./Artwork";
 
 export default function Gallery(props) {
-	
-	const contentful = import.meta.env;
+
+	console.log('GALLERY');
+	const contentful =
+		import.meta.env;
 	const spaceId = contentful.VITE_CONTENTFUL_SPACE_ID;
 	const accessToken = contentful.VITE_CONTENTFUL_DELIVERY_API_ACCESS_TOKEN;
 	const query = `
@@ -22,8 +24,8 @@ export default function Gallery(props) {
 	const [images, setImages] = useState({});
 
 	useEffect(() => {
-		const fetchData = async () =>{
-			const results = await fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/master`, {
+		window
+			.fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/master`, {
 				method: "POST",
 				headers: {
 					"content-type": "application/json",
@@ -34,29 +36,24 @@ export default function Gallery(props) {
 				}),
 			})
 			.then((res) => res.json())
-			.then((response) => {
+			.then(({ data, errors }) => {
 
-				const { data } = response;
-				setImages(contentfulData(data));
+				if (errors) {
+					console.error(errors);
+				}
+
+				setImages(data);
 
 			});
-		}
 
-		fetchData()
-		.catch(console.error);
-
-	}, [images]);
-
-	console.log(images);
+	}, []);
 
 	return (
 		<section className="gallery">
-			<Artwork images={images} />
+		{images.imageCollection
+		?<Artwork imageCollection={images.imageCollection} />
+		:<p>Loading</p>
+		}
 		</section>
 	);
 }
-
-function contentfulData(el){
-	console.log(el);
-	return el;
-};
