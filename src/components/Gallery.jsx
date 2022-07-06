@@ -2,23 +2,27 @@ import React, { useState, useEffect } from "react";
 import Artwork from "./Artwork";
 
 export default function Gallery(props) {
-
-	console.log('GALLERY');
-	const contentful =
-		import.meta.env;
+	console.log("GALLERY");
+	const contentful = import.meta.env;
 	const spaceId = contentful.VITE_CONTENTFUL_SPACE_ID;
 	const accessToken = contentful.VITE_CONTENTFUL_DELIVERY_API_ACCESS_TOKEN;
 	const query = `
 	{
 		imageCollection{
-		 items{
-		   image{
-			 fileName
-			 url
-		   }
-		 }
-	   }
-	 }
+		  items{
+			image{
+			  title
+			  description
+			  url
+			  contentfulMetadata{
+				tags{
+				  name
+				}
+			  }
+			}
+		  }
+		}
+	  }
 	`;
 
 	const [images, setImages] = useState({});
@@ -37,23 +41,13 @@ export default function Gallery(props) {
 			})
 			.then((res) => res.json())
 			.then(({ data, errors }) => {
-
 				if (errors) {
 					console.error(errors);
 				}
 
 				setImages(data);
-
 			});
-
 	}, []);
 
-	return (
-		<section className="gallery">
-		{images.imageCollection
-		?<Artwork imageCollection={images.imageCollection} />
-		:<p>Loading</p>
-		}
-		</section>
-	);
+	return <section className="gallery">{images.imageCollection ? <Artwork imageCollection={images.imageCollection} /> : <p>Loading</p>}</section>;
 }
