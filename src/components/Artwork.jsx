@@ -10,7 +10,6 @@ export default function Artwork(props) {
 	return (
 		<ul className="tw-flex tw-flex-wrap tw-justify-between">
 				{imgArray.map((item, index) => {
-          console.log(item.image);
 					return (
 						<li key={index} className="galleryTwoCols md:galleryThreeCols">
               <figure>
