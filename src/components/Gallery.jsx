@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Artwork from "./Artwork";
 
 export default function Gallery(props) {
-	console.log("GALLERY");
 	const contentful = import.meta.env;
 	const spaceId = contentful.VITE_CONTENTFUL_SPACE_ID;
 	const accessToken = contentful.VITE_CONTENTFUL_DELIVERY_API_ACCESS_TOKEN;
@@ -34,14 +33,15 @@ export default function Gallery(props) {
 	}
 	`;
 
-	const [imgCollection, setImgCollection] = useState({});
+	const [imgCollection, setImgCollection] = useState([]);
+	const [tagFilter, setTagFilter] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
-	const [tags,setTags] = useState([]);
-
-	let imgs=[];
-
 
 	useEffect(() => {
+
+		let imagesQuery = [],
+		assetsQuery = [];
+		
 		window
 			.fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/master`, {
 				method: "POST",
@@ -59,48 +59,86 @@ export default function Gallery(props) {
 					console.error(errors);
 				}
 
-				setImgCollection(data);
-
-				imgs = data.imageCollection.items.map(item => {
+				imagesQuery = data.imageCollection.items;
+				const imageUrls = imagesQuery.map((item) => {
 					return item.image.url;
 				});
 
-				const assets=data.assetCollection.items.map(item=>{
+				assetsQuery = data.assetCollection.items;
+				const tags = assetsQuery.map((item) => {
 					return item.contentfulMetadata.tags[0].name;
 				});
 
-				setTags([...new Set(assets)]);
+				// Initial rendering of portfolio images
+				setImgCollection(imagesQuery);
 
-				cacheImages(imgs, setIsLoading);
+				// Initial filter options
+				setTagFilter([...new Set(tags)]);
+
+				// Precache images
+				cacheImages(imageUrls, setIsLoading);
+
 			});
+
+			const filterSelector = document.getElementById('tagName');
+
+			filterSelector.addEventListener('change',e=>{
+
+				let filteredArray=[];
+
+				if (e.target.value == "all") {
+		
+					filteredArray = imagesQuery;
+		
+				} else {
+		
+					filteredArray = imagesQuery.filter((item) => {
+		
+						return item.image.contentfulMetadata.tags[0].name == e.target.value;
+		
+					});
+				}
+
+				setImgCollection(filteredArray);
+
+			})
 	}, []);
 
-	return <section className="gallery">
-		<form>
-			<legend>Filter</legend>
-			<select name="tag" id="tagName" defaultValue="all">
-				<option value="all">All</option>
-				{tags.map((tag,index)=>{
-					return <option value={tag} key={index} >{tag}</option>
-				})}
-			</select>
-		</form>
-		{isLoading ? <p>Loading</p> : <Artwork imageCollection={imgCollection.imageCollection} />}
-	</section>;
-}
+	const cacheImages = async (imgArray, set) => {
+		const promises = await imgArray.map((src) => {
+			return new Promise((resolve, reject) => {
+				const img = new Image();
 
-const cacheImages = async (imgArray, set) => {
-	const promises = await imgArray.map((src) => {
-		return new Promise((resolve, reject) => {
-			const img = new Image();
-
-			img.src = src;
-			img.onload = resolve();
-			img.onerror = reject();
+				img.src = src;
+				img.onload = resolve();
+				img.onerror = reject();
+			});
 		});
-	});
 
-	await Promise.all(promises);
+		await Promise.all(promises);
 
-	set(false);
-};
+		set(false);
+	};
+
+	return (
+		<section className="gallery">
+			<form>
+				<legend>Filter</legend>
+				<select
+					name="tag"
+					id="tagName"
+				>
+					<option value="all">All</option>
+					{tagFilter.map((tag, index) => {
+						return (
+							<option value={tag} key={index}>
+								{tag}
+							</option>
+						);
+					})}
+				</select>
+			</form>
+			{isLoading ? <p>Loading</p> : <Artwork imageCollection={imgCollection} />}
+		</section>
+	);
+}

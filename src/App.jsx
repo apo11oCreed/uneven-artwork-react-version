@@ -6,7 +6,6 @@ import "./App.css";
 import { BrowserRouter as Router, HashRouter } from "react-router-dom";
 
 export default function App() {
-	console.log('APP');
 	// UX details
 	// On homepage entry, title should fade in and expand
 	// On homepage exit, title should fade out and collapse
