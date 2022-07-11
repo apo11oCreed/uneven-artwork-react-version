@@ -192,6 +192,9 @@
 							padding-bottom:4rem;
 						}
 					}
+					.overlay{
+						@apply bg-splash;
+					}
 				}
 			}
 			footer {
