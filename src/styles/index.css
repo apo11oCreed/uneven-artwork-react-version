@@ -16,183 +16,199 @@
 		background-color: theme(colors.splash-rgba);
 		background-color: theme(colors.splash-hsla);
 	}
-	.galleryThreeCols{
+	.galleryThreeCols {
 		flex-basis: theme(spacing.gallery-three-cols);
 	}
-	.galleryTwoCols{
+	.galleryTwoCols {
 		flex-basis: theme(spacing.gallery-two-cols);
 	}
 }
 
 @layer components {
-	html{
-		@media screen and (max-width:480px) and (orientation:portrait){
+	html {
+		@media screen and (max-width: 480px) and (orientation: portrait) {
 			font-size: 62.5%;
 		}
-		@media screen and (max-width:975px){
+		@media screen and (max-width: 975px) {
 			font-size: 8px;
 		}
-		@media screen and (min-width:976px){
+		@media screen and (min-width: 976px) {
 			font-size: 62.5%;
 		}
-		body{
+		body {
 			@apply bg-splash;
 			@keyframes bgFadeOut {
-				from {opacity: 1.0;}
-		  		to {opacity: 0.0;}
-			}
-			@keyframes bgFadeIn {
-				from {opacity: 0.0;}
-		  		to {opacity: 1.0;}
-			}
-			@keyframes foreFadeOut {
-				from {opacity: 8.5;}
-		  		to {opacity: 0.0;}
-			}
-			@keyframes foreFadeIn {
-				from {opacity: 0.0;}
-		  		to {opacity: 0.85;}
-			}
-			#root{
-				@apply tw-mt-[8rem];
-			}
-			#titleAnimate{
-				@apply tw-text-[7.2rem];
-				letter-spacing: normal;
-				&.titleTextSpread{
-					letter-spacing:20px;
+				from {
+					opacity: 1;
+				}
+				to {
+					opacity: 0;
 				}
 			}
-			h1{
+			@keyframes bgFadeIn {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+			@keyframes foreFadeOut {
+				from {
+					opacity: 8.5;
+				}
+				to {
+					opacity: 0;
+				}
+			}
+			@keyframes foreFadeIn {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 0.85;
+				}
+			}
+			#root {
+				@apply tw-mt-[8rem];
+			}
+			#titleAnimate {
+				@apply tw-text-[7.2rem];
+				letter-spacing: normal;
+				&.titleTextSpread {
+					letter-spacing: 2rem;
+				}
+			}
+			h1 {
 				@apply tw-text-center;
 				color: #fff;
-				font-size:1.6rem;
+				font-size: 1.6rem;
 			}
-			h2{
+			h2 {
 				@apply tw-text-[3.6rem] tw-mb-6;
 			}
 			header {
 				nav {
-					top:-20rem;
+					top: -20rem;
 					@apply tw-absolute;
-					box-shadow:0 0 4px 2px rgb(0 0 0 / 16%);
+					box-shadow: 0 0 4px 2px rgb(0 0 0 / 16%);
 					&.moveNavDown {
-						top:0;
+						top: 0;
 						@apply tw-fixed;
 					}
 					&.tw-main {
 						@apply tw-hidden sm:tw-block bg-blue tw-px-[2rem] tw-pb-[1.5rem] tw-pt-[1rem] tw-rounded-bl-lg tw-rounded-br-lg tw-w-fit tw-mx-auto -tw-translate-x-2/4 tw-left-2/4;
-						p{
+						p {
 							@apply tw-block tw-leading-none tw-text-center;
 							color: #fff;
-							font-size:1.6rem;
+							font-size: 1.6rem;
 						}
-						hr{
+						hr {
 							@apply tw-h-0 tw-bg-none tw-border-none tw-my-4;
 							box-shadow: theme(boxShadow.hr-white);
 						}
-		                ul{
-		                    @apply tw-grid tw-grid-rows-1;
+						ul {
+							@apply tw-grid tw-grid-rows-1;
 							grid-template-columns: theme(gridTemplateColumns.minmax10);
-		                    li {
+							li {
 								a {
-		                            @apply tw-block tw-leading-none tw-text-center;
-		                            color: #fff;
-									font-size:1.6rem;
-		                        }
-								&.home-link{
+									@apply tw-block tw-leading-none tw-text-center;
+									color: #fff;
+									font-size: 1.6rem;
+								}
+								&.home-link {
 									@apply tw-flex-grow;
 									a {
 										@apply tw-block tw-relative;
-										&:after{
+										&:after {
 											@apply tw-absolute tw-top-0 tw-left-0 tw-w-[3rem] tw-h-[2rem];
-											content:'';
+											content: '';
 											background-image: theme(backgroundImages.default);
-											background-size:contain;
+											background-size: contain;
 											background-repeat: no-repeat;
 											background-position: center center;
-											display:block;
+											display: block;
 											width: 100%;
 										}
 									}
 								}
-		                    }
-		                }
+							}
+						}
 					}
 				}
 			}
 			main {
-				&:before{
+				&:before {
 					@apply background-splash;
 					background-image: theme(backgroundImages.default);
-					z-index:-2;
-					position:fixed;
-					display:block;
-					top:0;
-					left:0;
-					width:100%;
-					height:100%;
-					content:'';
+					z-index: -2;
+					position: fixed;
+					display: block;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					content: '';
 				}
-				&:after{
+				&:after {
 					background-color: #ffffff;
-					z-index:-1;
-					position:fixed;
-					display:block;
-					top:0;
-					left:0;
-					width:100%;
-					height:100%;
-					content:'';
+					z-index: -1;
+					position: fixed;
+					display: block;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					content: '';
 				}
-				&.home{
+				&.home {
 					/* background image */
 					&:before {
-						opacity:1.0;
+						opacity: 1;
 						animation: bgFadeIn 0.25s linear normal;
 					}
 					/* foreground color */
 					&:after {
-						opacity:0.0;
+						opacity: 0;
 						animation: foreFadeOut 0.25s linear normal;
 					}
 				}
-				&.not-home{
+				&.not-home {
 					/* background image */
 					&:before {
-						opacity:0.0;
+						opacity: 0;
 						animation: bgFadeOut 0.25s linear normal;
 					}
 					/* foreground color */
-					&:after{
-						opacity:0.85;
+					&:after {
+						opacity: 0.85;
 						animation: foreFadeIn 0.25s linear normal;
 					}
 				}
-				section{
-					&.about{
+				section {
+					&.about {
 						/*background-color:theme(colors.ngc-blue-hex.700);
 						filter: darken(1);*/
-						color:#000000;
+						color: #000000;
 						/* column-count:2;
 						column-gap: 6rem; */
-						@media screen and (max-width:480px) and (orientation:portrait){
-							column-count:1;
+						@media screen and (max-width: 480px) and (orientation: portrait) {
+							column-count: 1;
 						}
 						@apply tw-p-8;
-						h2{
-							column-span:all;
+						h2 {
+							column-span: all;
 						}
-						p{
+						p {
 							@apply tw-text-[1.6rem] tw-leading-[1.45] tw-mb-6;
 						}
-						img{
-							margin:4rem 0;
-							border-bottom:1px solid black;
-							padding-bottom:4rem;
+						img {
+							margin: 4rem 0;
+							border-bottom: 1px solid black;
+							padding-bottom: 4rem;
 						}
 					}
-					.overlay{
+					.overlay {
 						@apply bg-splash;
 					}
 				}
@@ -200,9 +216,9 @@
 			footer {
 				color: #fff;
 				@apply bg-blue tw-py-8 sm:tw-py-1;
-				&>div{
+				& > div {
 					@apply tw-flex tw-flex-col-reverse sm:tw-flex-row;
-					font-size:1.4rem;
+					font-size: 1.4rem;
 					nav {
 						@apply tw-px-10 tw-pb-[1rem] sm:tw-pb-0;
 						&.tw-footer {
@@ -224,11 +240,11 @@
 	}
 }
 
-@layer utilities{
-	.sr{
-		display:none;
+@layer utilities {
+	.sr {
+		display: none;
 	}
-    .bg-blue {
+	.bg-blue {
 		background-color: theme(colors.ngc-blue-hex.DEFAULT);
 		background-color: theme(colors.ngc-blue-rgba);
 		background-color: theme(colors.ngc-blue-hsla);
