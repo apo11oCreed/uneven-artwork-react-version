@@ -211,6 +211,23 @@
 					.overlay {
 						@apply bg-splash;
 					}
+					&.gallery {
+						ul {
+							li {
+								figure {
+									img {
+										@apply tw-w-full;
+										transition: width 0.5s ease-in-out;
+									}
+									&:hover {
+										img {
+											@apply tw-w-[110%] tw-h-auto;
+										}
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 			footer {
