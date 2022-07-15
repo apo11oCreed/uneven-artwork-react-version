@@ -93,7 +93,7 @@ export default function Gallery() {
 				});
 			}
 
-			galleryTitle.innerHTML = e.target.value;
+			galleryTitle.innerHTML = `Portfolio: ${e.target.value} Samples`;
 
 			setImgCollection(filteredArray);
 		});
@@ -118,7 +118,7 @@ export default function Gallery() {
 	return (
 		<section className='gallery'>
 			<form>
-				<legend>Filter</legend>
+				<legend>Select art category</legend>
 				<select name='tag' id='tagName'>
 					<option value='all'>All</option>
 					{tagFilter.map((tag, index) => {
@@ -130,8 +130,8 @@ export default function Gallery() {
 					})}
 				</select>
 			</form>
-			<h2 id='galleryTitle' className='tw-capitalize tw-text-center'>
-				All
+			<h2 id='galleryTitle' className='tw-capitalize tw-text-center tw-my-[2rem]'>
+				Portfolio : All Samples
 			</h2>
 			{isLoading ? <p>Loading</p> : <Artwork imageCollection={imgCollection} />}
 		</section>
