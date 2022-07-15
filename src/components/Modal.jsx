@@ -14,8 +14,8 @@ export default function Modal({ image, showModal }) {
 
 	return (
 		<>
-			<div className='modal tw-max-h-[100vh] tw-h-auto tw-block tw-fixed tw-left-1/2 -tw-translate-x-2/4 tw-top-0 tw-z-30 tw-p-[2rem] tw-overflow-scroll tw-max-w-[58.5rem]'>
-				<div className='header tw-flex tw-justify-end tw-p-[1rem]'>
+			<div className='modal tw-max-h-[100vh] tw-h-auto tw-block tw-fixed tw-left-1/2 -tw-translate-x-2/4 tw-top-0 tw-z-30 tw-overflow-y-scroll tw-max-w-[58.5rem] tw-my-[2rem] tw-px-[2rem]'>
+				<div className='header tw-flex tw-justify-end'>
 					<button
 						aria-label='Close'
 						className='tw-right-0 tw-top-0 tw-block tw-border-2 tw-p-[1rem] tw-rounded-full tw-leading-none tw-font-bold tw-text-xl hover:tw-cursor-pointer'
@@ -39,7 +39,7 @@ export default function Modal({ image, showModal }) {
 				onClick={() => {
 					showModal(false);
 				}}
-				className='overlay tw-max-h-[100vh] tw-w-full tw-h-full tw-block tw-fixed tw-left-0 tw-top-0 tw-z-20 tw-bg-slate-800 tw-opacity-80 tw-text-center'
+				className='overlay tw-max-h-[100vh] tw-w-full tw-h-full tw-block tw-fixed tw-left-0 tw-top-0 tw-z-20 tw-opacity-80 tw-text-center'
 			></div>
 		</>
 	);

@@ -290,10 +290,29 @@
 			}
 		}
 		.modal {
+			scrollbar-color: #999 #333;
 			img {
 				height: auto;
 				width: calc(50vw - 2rem);
 				margin: 0 auto;
+			}
+			&::-webkit-scrollbar {
+				-webkit-appearance: none;
+				@apply tw-w-[1rem];
+			}
+			&::-webkit-scrollbar-button {
+				@apply bg-blue;
+			}
+			&::-webkit-scrollbar-track {
+				background-color: transparent;
+				background-clip: content-box;
+			}
+			&::-webkit-scrollbar-thumb {
+				@apply bg-orange tw-rounded-full;
+				border: none;
+			}
+			&::-webkit-scrollbar-corner {
+				background-color: transparent;
 			}
 		}
 	}
