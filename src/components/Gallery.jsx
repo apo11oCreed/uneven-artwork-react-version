@@ -80,6 +80,7 @@ export default function Gallery() {
 			});
 
 		const filterSelector = document.getElementById('tagName');
+		const galleryTitle = document.getElementById('galleryTitle');
 
 		filterSelector.addEventListener('change', (e) => {
 			let filteredArray = [];
@@ -91,6 +92,8 @@ export default function Gallery() {
 					return item.image.contentfulMetadata.tags[0].name == e.target.value;
 				});
 			}
+
+			galleryTitle.innerHTML = e.target.value;
 
 			setImgCollection(filteredArray);
 		});
@@ -127,6 +130,9 @@ export default function Gallery() {
 					})}
 				</select>
 			</form>
+			<h2 id='galleryTitle' className='tw-capitalize tw-text-center'>
+				All
+			</h2>
 			{isLoading ? <p>Loading</p> : <Artwork imageCollection={imgCollection} />}
 		</section>
 	);
