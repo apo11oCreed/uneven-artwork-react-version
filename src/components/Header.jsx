@@ -63,7 +63,7 @@ export default function Header({ siteName, setPage }) {
 	}, [location]);
 
 	return (
-		<header className={`tw-w-full tw-container tw-mx-auto ${(pageClass = location.pathname == '/' ? 'home' : 'not-home')}`}>
+		<header className={`tw-w-full tw-container tw-mx-auto sm:tw-block ${(pageClass = location.pathname == '/' ? 'home' : 'not-home')}`}>
 			{pageClass == 'home' && (
 				<div id='titleAnimate' ref={titleRef} className='tw-text-black tw-font-bold tw-mx-0.5 tw-text-center tw-absolute tw-left-1/2 tw-bottom-1/2 tw-whitespace-nowrap -tw-translate-x-1/2 md:tw-tracking-[1vw] tw-text-[7vw] md:tw-text-[7.2rem] tw-leading-none'>
 					{siteName}

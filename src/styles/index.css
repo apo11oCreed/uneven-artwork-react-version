@@ -75,11 +75,14 @@
 				@apply tw-my-[6.8rem];
 			}
 			#titleAnimate {
-				@apply tw-text-[7.2rem];
+				@apply tw-text-[4.5rem] sm:tw-text-[7.2rem];
 				letter-spacing: normal;
 				font-family: 'Unna', serif;
 				&.titleTextSpread {
 					letter-spacing: 2rem;
+					@media screen and (max-width: 480px) and (orientation: portrait) {
+						letter-spacing: 1rem;
+					}
 				}
 			}
 			h1 {

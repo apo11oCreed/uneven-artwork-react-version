@@ -27,7 +27,11 @@ export default function Gallery() {
 				}
 			}
 		}
-		assetCollection{
+		assetCollection(where:{
+			contentfulMetadata:{
+			  tags_exists:true
+			}
+		  }){
 			items{
 				contentfulMetadata{
 					tags{
@@ -58,6 +62,8 @@ export default function Gallery() {
 				if (errors) {
 					console.error(errors);
 				}
+
+				console.log(data);
 
 				imagesQuery = data.imageCollection.items;
 				const imageUrls = imagesQuery.map((item) => {
