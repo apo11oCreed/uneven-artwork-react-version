@@ -23,6 +23,12 @@
 	.galleryTwoCols {
 		flex-basis: theme(spacing.gallery-two-cols);
 	}
+	.navXs {
+		font-size: theme(fontSizes.navXs);
+	}
+	.default {
+		font-size: theme(fontSizes.default);
+	}
 }
 
 @layer components {
@@ -107,11 +113,10 @@
 						@apply tw-fixed;
 					}
 					&.tw-main {
-						@apply tw-hidden sm:tw-block bg-blue tw-px-[2rem] tw-pb-[1.5rem] tw-pt-[1rem] tw-rounded-bl-lg tw-rounded-br-lg tw-w-fit tw-mx-auto -tw-translate-x-2/4 tw-left-2/4;
+						@apply sm:tw-block bg-blue tw-px-[2rem] tw-pb-[1.5rem] tw-pt-[1rem] tw-rounded-bl-lg tw-rounded-br-lg tw-w-fit tw-mx-auto -tw-translate-x-2/4 tw-left-2/4;
 						p {
 							@apply tw-block tw-leading-none tw-text-center;
 							color: #fff;
-							font-size: 1.6rem;
 						}
 						hr {
 							@apply tw-h-0 tw-bg-none tw-border-none tw-my-4;
@@ -122,9 +127,8 @@
 							grid-template-columns: theme(gridTemplateColumns.minmax10);
 							li {
 								a {
-									@apply tw-block tw-leading-none tw-text-center;
+									@apply tw-block tw-leading-none tw-text-center navXs sm:default;
 									color: #fff;
-									font-size: 1.6rem;
 								}
 								&.home-link {
 									@apply tw-flex-grow;

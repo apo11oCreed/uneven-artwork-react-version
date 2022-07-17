@@ -53,6 +53,10 @@ module.exports = {
 		backgroundImages: {
 			...(process.env.NODE_ENV === 'production' ? { default: 'url("../img/10475996-3x2-940x627.jpg")' } : { default: 'url("../img/10475996-3x2-940x627.jpg")' }),
 		},
+		fontSizes: {
+			navXs: '2rem',
+			default: '1.6rem',
+		},
 		extend: {
 			spacing: {
 				128: '32rem',

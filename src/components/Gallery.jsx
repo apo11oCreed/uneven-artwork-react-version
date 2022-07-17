@@ -136,7 +136,7 @@ export default function Gallery() {
 					})}
 				</select>
 			</form>
-			<h2 id='galleryTitle' className='tw-capitalize tw-text-center tw-my-[2rem]'>
+			<h2 id='galleryTitle' className='tw-font-bold tw-capitalize tw-text-center tw-my-[2rem]'>
 				Portfolio : All Samples
 			</h2>
 			{isLoading ? <p>Loading</p> : <Artwork imageCollection={imgCollection} />}
