@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Unna:wght@400;700&display=swap');
+@import '../../node_modules/bootstrap-icons/font/bootstrap-icons';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -78,21 +79,18 @@
 				}
 			}
 			#root {
-				@apply tw-my-[6.8rem];
+				@apply tw-mt-[6.8rem] sm:tw-mt-[6.8rem];
 			}
 			#titleAnimate {
 				@apply tw-text-[4.5rem] sm:tw-text-[7.2rem];
 				letter-spacing: normal;
 				font-family: 'Unna', serif;
 				&.titleTextSpread {
-					letter-spacing: 2rem;
-					@media screen and (max-width: 480px) and (orientation: portrait) {
-						letter-spacing: 1rem;
-					}
+					letter-spacing: 1rem;
 				}
 			}
 			h1 {
-				@apply tw-text-center;
+				@apply tw-text-center tw-text-[3rem] sm:tw-text-[3.2rem];
 				font-family: 'Unna', serif;
 				color: #fff;
 				font-size: theme(fontSizes.h1);
