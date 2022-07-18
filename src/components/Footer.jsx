@@ -10,7 +10,7 @@ class Footer extends Component {
 	render() {
 		return (
 			<>
-				<footer className='tw-w-full tw-fixed tw-bottom-0 tw-z-10'>
+				<footer className='tw-w-full tw-bottom-0 tw-z-10'>
 					{/* <div className='tw-mx-auto tw-container tw-flex tw-z-10 tw-justify-evenly'>
 						<span className='bg-blue tw-w-full tw-h-1'></span>
 						<span className='bg-green tw-w-full tw-h-1'></span>

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.2",
+    "bootstrap-icons": "^1.9.1",
     "contentful": "^9.1.29",
     "dotenv": "^16.0.1",
     "env-cmd": "^10.1.0",
