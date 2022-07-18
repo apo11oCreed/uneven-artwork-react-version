@@ -54,6 +54,8 @@ module.exports = {
 			...(process.env.NODE_ENV === 'production' ? { default: 'url("../img/10475996-3x2-940x627.jpg")' } : { default: 'url("../img/10475996-3x2-940x627.jpg")' }),
 		},
 		fontSizes: {
+			h1: '3.2rem',
+			h1Mobile: '2.8rem',
 			navXs: '2rem',
 			default: '1.6rem',
 		},

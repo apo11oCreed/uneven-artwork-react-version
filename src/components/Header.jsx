@@ -14,7 +14,7 @@ export default function Header({ siteName, setPage }) {
 		const titleAnimation = title.animate(
 			[
 				{
-					letterSpacing: '2rem',
+					letterSpacing: '1rem',
 				},
 			],
 			1000,

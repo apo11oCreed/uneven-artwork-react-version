@@ -95,7 +95,10 @@
 				@apply tw-text-center;
 				font-family: 'Unna', serif;
 				color: #fff;
-				font-size: 3.2rem;
+				font-size: theme(fontSizes.h1);
+				@media screen and (max-width: 480px) and (orientation: portrait) {
+					font-size: theme(fontSizes.h1Mobile);
+				}
 			}
 			h2 {
 				@apply tw-text-[3.6rem] tw-mb-6;
@@ -133,17 +136,7 @@
 								&.home-link {
 									@apply tw-flex-grow;
 									a {
-										@apply tw-block tw-relative;
-										&:after {
-											@apply tw-absolute tw-top-0 tw-left-0 tw-w-[3rem] tw-h-[2rem];
-											content: '';
-											background-image: theme(backgroundImages.default);
-											background-size: contain;
-											background-repeat: no-repeat;
-											background-position: center center;
-											display: block;
-											width: 100%;
-										}
+										@apply tw-flex tw-relative;
 									}
 								}
 							}
@@ -201,19 +194,10 @@
 					}
 				}
 				section {
+					@apply tw-p-[2rem];
 					&.about {
-						/*background-color:theme(colors.ngc-blue-hex.700);
-						filter: darken(1);*/
-						color: #000000;
-						/* column-count:2;
-						column-gap: 6rem; */
-						@media screen and (max-width: 480px) and (orientation: portrait) {
-							column-count: 1;
-						}
 						@apply tw-p-8;
-						h2 {
-							column-span: all;
-						}
+						color: #000000;
 						p {
 							@apply tw-text-[1.6rem] tw-leading-[1.45] tw-mb-6;
 						}
@@ -284,21 +268,6 @@
 				& > div {
 					@apply tw-flex tw-flex-col-reverse sm:tw-flex-row;
 					font-size: 1.4rem;
-					nav {
-						@apply tw-px-10 tw-pb-[1rem] sm:tw-pb-0 sm:tw-hidden;
-						&.tw-footer {
-							ul {
-								@apply tw-flex tw-flex-row tw-ml-4;
-								li {
-									@apply tw-border-r first:tw-pr-4 last:tw-pl-4 last:tw-border-r-0;
-									a {
-										@apply tw-font-normal;
-										color: #fff;
-									}
-								}
-							}
-						}
-					}
 				}
 			}
 		}

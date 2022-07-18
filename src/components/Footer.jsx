@@ -10,17 +10,9 @@ class Footer extends Component {
 	render() {
 		return (
 			<>
-				<footer className='tw-w-full tw-fixed tw-bottom-0 tw-z-10'>
-					{/* <div className='tw-mx-auto tw-container tw-flex tw-z-10 tw-justify-evenly'>
-						<span className='bg-blue tw-w-full tw-h-1'></span>
-						<span className='bg-green tw-w-full tw-h-1'></span>
-						<span className='bg-pink tw-w-full tw-h-1'></span>
-						<span className='bg-orange tw-w-full tw-h-1'></span>
-						<span className='bg-dark-orange tw-w-full tw-h-1'></span>
-					</div> */}
+				<footer className='tw-w-full tw-fixed tw-bottom-0 tw-z-10 tw-pt-[1.5rem] tw-pb-[1rem]'>
 					<div className='tw-container tw-mx-auto tw-flex tw-justify-center tw-items-center'>
 						<Legal />
-						<Menu passToMenu={this.props.getLinkText} className='tw-footer' />
 					</div>
 				</footer>
 			</>
