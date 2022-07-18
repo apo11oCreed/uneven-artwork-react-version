@@ -79,7 +79,7 @@
 				}
 			}
 			#root {
-				@apply tw-mt-[6.8rem] sm:tw-mt-[6.8rem];
+				@apply tw-my-[6.8rem] sm:tw-my-[6.8rem];
 			}
 			#titleAnimate {
 				@apply tw-text-[4.5rem] sm:tw-text-[7.2rem];
