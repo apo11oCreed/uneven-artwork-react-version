@@ -35,11 +35,8 @@
 @layer components {
 	html {
 		font-family: 'Roboto', sans-serif;
-		font-size: 62.5%;
+		font-size: 8px;
 		@screen md {
-			font-size: 8px;
-		}
-		@screen lg {
 			font-size: 62.5%;
 		}
 		body {
@@ -88,7 +85,7 @@
 				}
 			}
 			h1 {
-				@apply tw-text-center tw-text-[3rem] sm:tw-text-[3.2rem];
+				@apply tw-text-center tw-text-[2.8rem] sm:tw-text-[3.2rem];
 				font-family: 'Unna', serif;
 				color: #fff;
 				font-size: theme(fontSizes.h1);
