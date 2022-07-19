@@ -14,7 +14,7 @@ export default function Modal({ image, showModal }) {
 
 	return (
 		<>
-			<div className='modal tw-max-h-[100vh] tw-h-auto tw-block tw-fixed tw-left-1/2 -tw-translate-x-2/4 tw-top-0 tw-z-30 tw-overflow-y-scroll tw-max-w-[58.5rem] tw-my-[2rem] tw-px-[2rem]'>
+			<div className='modal xs:tw-w-full sm:tw-max-h-[100vh] tw-h-auto tw-block tw-fixed tw-left-1/2 -tw-translate-x-2/4 tw-top-2/4 -tw-translate-y-2/4  tw-z-30 tw-overflow-y-scroll sm:tw-max-w-[58.5rem] tw-my-[2rem] sm:tw-px-[2rem] '>
 				<div className='header tw-flex tw-justify-end'>
 					<button
 						aria-label='Close'
