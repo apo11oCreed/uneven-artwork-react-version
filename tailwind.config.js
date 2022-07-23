@@ -57,6 +57,7 @@ module.exports = {
 			h1: '3.2rem',
 			h1Mobile: '2.8rem',
 			navXs: '2rem',
+			loadMessage:'2rem',
 			default: '1.6rem',
 		},
 		extend: {

@@ -291,6 +291,11 @@
 				background-color: transparent;
 			}
 		}
+		.load-message{
+			@apply tw-text-center tw-my-[2rem] tw-font-bold;
+			animation: bgFadeOut 0.5s linear 1s infinite alternate;
+			font-size: theme(fontSizes.loadMessage);
+		}
 		form {
 			@apply tw-flex tw-justify-center tw-flex-wrap;
 			legend{

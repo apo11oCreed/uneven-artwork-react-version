@@ -106,10 +106,12 @@ export default function Gallery() {
 	}, []);
 
 	const cacheImages = async (imgArray, set) => {
+		console.log('cacheImages function starting');
 		const promises = await imgArray.map((src) => {
 			return new Promise((resolve, reject) => {
 				const img = new Image();
 
+				console.log('image source loading:' + '\n' + src + '\n\n');
 				img.src = src;
 				img.onload = resolve();
 				img.onerror = reject();
@@ -119,6 +121,7 @@ export default function Gallery() {
 		await Promise.all(promises);
 
 		set(false);
+		console.log('all images done loading');
 	};
 
 	return (
@@ -127,7 +130,7 @@ export default function Gallery() {
 			<legend><h2 id='galleryTitle' className='tw-font-bold tw-capitalize tw-text-center tw-mb-[2rem]'>
 				Portfolio : All Samples
 			</h2></legend>
-				<label for='tagName'>Select Category</label>
+				<label htmlFor='tagName'>Select Category</label>
 				<select name='tag' id='tagName'>
 					<option value='all'>All</option>
 					{tagFilter.map((tag, index) => {
@@ -139,7 +142,7 @@ export default function Gallery() {
 					})}
 				</select>
 			</form>
-			{isLoading ? <p>Loading</p> : <Artwork imageCollection={imgCollection} />}
+			{isLoading ? <p className='load-message'>Loading...</p> : <Artwork imageCollection={imgCollection} />}
 		</section>
 	);
 }
