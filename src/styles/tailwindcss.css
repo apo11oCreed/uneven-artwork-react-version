@@ -292,9 +292,11 @@
 			}
 		}
 		form {
-			@apply tw-flex tw-justify-center;
-			legend,
-			select {
+			@apply tw-flex tw-justify-center tw-flex-wrap;
+			legend{
+				flex: 0 0 100%;
+			}
+			select, label {
 				@apply tw-text-[1.6rem] tw-mr-[1rem];
 			}
 		}

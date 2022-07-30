@@ -17,7 +17,7 @@ export default function Artwork(props) {
 					return (
 						<li key={index} className='galleryTwoCols md:galleryThreeCols tw-rounded-lg tw-mt-[1.5rem] tw-overflow-hidden'>
 							<figure className='tw-relative tw-w-auto tw-h-[25rem] tw-overflow-hidden tw-flex tw-justify-center tw-items-center tw-flex-col'>
-								<img className='tw-absolute tw-left-[50%] tw-top-[50%] -tw-translate-y-[50%] -tw-translate-x-[50%] tw-max-w-fit' src={item.image.url} />
+								<img className='tw-absolute tw-left-[50%] tw-top-[50%] -tw-translate-y-[50%] -tw-translate-x-[50%] tw-max-w-fit' src={item.image.url} alt={item.image.title} />
 								<div className='overlay'></div>
 								<figcaption className='sr tw-relative tw-max-w-[50%] tw-p-[1rem] tw-text-[2rem] tw-leading-[1] tw-text-center'>{item.image.title}</figcaption>
 								<button
