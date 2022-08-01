@@ -24,7 +24,7 @@ export default function Modal({ image, showModal, activateTrap }) {
 	return (
 		<FocusTrap>
 			<div>
-				<div className='modal xs:tw-w-full sm:tw-max-h-[100vh] tw-h-auto tw-block tw-fixed tw-left-1/2 -tw-translate-x-2/4 tw-top-2/4 -tw-translate-y-2/4  tw-z-30 tw-overflow-y-scroll sm:tw-max-w-[58.5rem] tw-my-[2rem] sm:tw-px-[2rem]' role='dialog' aria-labelledby='dialog1Title' aria-describedby='dialog1Desc' aria-modal='true' tabIndex='0'>
+				<div className='modal xs:tw-w-full sm:tw-max-h-[100vh] tw-h-auto tw-block tw-fixed tw-left-1/2 -tw-translate-x-2/4 tw-top-2/4 -tw-translate-y-2/4  tw-z-30 tw-overflow-y-scroll sm:tw-max-w-[58.5rem] tw-my-[2rem] sm:tw-px-[2rem]' role='dialog' aria-labelledby='dialog_label' aria-describedby='dialog_description' aria-modal='true' tabIndex='0'>
 					<div className='header tw-flex tw-justify-end'>
 						<button
 							aria-label='Close'
@@ -40,10 +40,10 @@ export default function Modal({ image, showModal, activateTrap }) {
 						<figure>
 							<img src={image.url} alt={image.title} />
 							<figcaption>
-								<h2 className='tw-text-center tw-leading-none tw-my-[2rem]' id='dialog1Title'>
+								<h2 className='tw-text-center tw-leading-none tw-my-[2rem]' id='dialog_label'>
 									{image.title}
 								</h2>
-								<p id='dialog1Desc'></p>
+								<p id='dialog_description'>{image.description}</p>
 							</figcaption>
 						</figure>
 					</div>
