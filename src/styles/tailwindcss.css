@@ -265,7 +265,7 @@
 			}
 		}
 		.modal {
-			@apply tw-overflow-auto;
+			@apply tw-overflow-scroll sm:tw-overflow-auto;
 			width: calc(100% - 2rem);
 			scrollbar-color: #999 #333;
 			img {
@@ -289,6 +289,11 @@
 			}
 			&::-webkit-scrollbar-corner {
 				background-color: transparent;
+			}
+			p{
+				&#dialog_description{
+					font-size:theme(fontSizes.modalDescription);
+				}
 			}
 		}
 		form {

@@ -63,8 +63,6 @@ export default function Gallery() {
 					console.error(errors);
 				}
 
-				console.log(data);
-
 				imagesQuery = data.imageCollection.items;
 				const imageUrls = imagesQuery.map((item) => {
 					return item.image.url;

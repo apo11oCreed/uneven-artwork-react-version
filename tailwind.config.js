@@ -58,6 +58,7 @@ module.exports = {
 			h1Mobile: '2.8rem',
 			navXs: '2rem',
 			default: '1.6rem',
+			modalDescription: '1.8rem',
 		},
 		extend: {
 			spacing: {

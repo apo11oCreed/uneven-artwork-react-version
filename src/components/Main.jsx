@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Gallery from './Gallery';
 import About from './About';

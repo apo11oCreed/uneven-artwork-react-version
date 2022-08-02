@@ -56,8 +56,10 @@ export default function Header({ siteName, setPage }) {
 		setPage(location.pathname);
 
 		if (location.pathname == '/') {
+			document.title='Uneven Artwork | Home';
 			titleAnimate();
 		} else {
+			document.title='Uneven Artwork | ' + location.pathname.substring(1);
 			mainMenuAnimate();
 		}
 	}, [location]);

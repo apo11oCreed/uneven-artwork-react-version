@@ -38,7 +38,7 @@ export default function Modal({ image, showModal, activateTrap }) {
 					</div>
 					<div className='body'>
 						<figure>
-							<img src={image.url} alt={image.title} />
+							<img src={image.url} alt='' />
 							<figcaption>
 								<h2 className='tw-text-center tw-leading-none tw-my-[2rem]' id='dialog_label'>
 									{image.title}
