@@ -9,11 +9,10 @@ export default function ArtworkContainer(props) {
 		<>
 			<ul className='tw-flex tw-flex-wrap tw-justify-between'>
 				{imageCollection.map((item, index) => {
-                    console.log(index);
 					return (
 						<Suspense
-							fallback={<Loader />}>
-							<Artwork item={item} key={index} index={index} />
+							fallback={<Loader />} key={index}>
+							<Artwork item={item} index={index} />
 						</Suspense>
 					);
 				})}

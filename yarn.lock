@@ -1710,7 +1710,12 @@
   "resolved" "https://registry.npmjs.org/value-equal/-/value-equal-1.0.1.tgz"
   "version" "1.0.1"
 
-"vite@^2.8.0":
+"vite-plugin-chunk-split@^0.2.5":
+  "integrity" "sha512-SqNLWwGO9iqyQEpj59NPGopmIOt245bQoEzLdlCpoiFoj59eHN7Me0fgrb3EMZ9qO/FM6jyLAB/c/5rfVwIrNg=="
+  "resolved" "https://registry.npmjs.org/vite-plugin-chunk-split/-/vite-plugin-chunk-split-0.2.5.tgz"
+  "version" "0.2.5"
+
+"vite@^2.8.0", "vite@>=2.0.0":
   "integrity" "sha512-e4H0QpludOVKkmOsRyqQ7LTcMUDF3mcgyNU4lmi0B5JUbe0ZxeBBl8VoZ8Y6Rfn9eFKYtdXNPcYK97ZwH+K2ug=="
   "resolved" "https://registry.npmjs.org/vite/-/vite-2.8.6.tgz"
   "version" "2.8.6"

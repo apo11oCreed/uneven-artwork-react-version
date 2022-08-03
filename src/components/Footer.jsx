@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Menu from './Menu';
 import Legal from './Legal';
 
 class Footer extends Component {
