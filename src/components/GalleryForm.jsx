@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Artwork from './Artwork';
+import ArtworkContainer from './ArtworkContainer';
 
-export default function Gallery() {
+export default function GalleryForm() {
 	const contentful = import.meta.env;
 
 	const [imgCollection, setImgCollection] = useState([]);
@@ -12,7 +12,7 @@ export default function Gallery() {
 		const spaceId = contentful.VITE_CONTENTFUL_SPACE_ID;
 		const accessToken = contentful.VITE_CONTENTFUL_DELIVERY_API_ACCESS_TOKEN;
 		const query = `
-	query {
+	query imagesAssets {
 		imageCollection{
 			items{
 				image{
@@ -137,7 +137,7 @@ export default function Gallery() {
 					})}
 				</select>
 			</form>
-			{isLoading ? <p>Loading</p> : <Artwork imageCollection={imgCollection} />}
+			<ArtworkContainer imageCollection={imgCollection} />
 		</section>
 	);
 }
