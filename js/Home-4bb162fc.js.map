@@ -1,0 +1,1 @@
+{"version":3,"file":"Home-4bb162fc.js","sources":["../../src/components/Home.jsx"],"sourcesContent":["export default function Home() {\n\treturn (\n\t\t<>\n\t\t\t{/* <section className=\"about\">\n\t\t\t</section> */}\n\t\t</>\n\t);\n}\n"],"names":["_jsx","_Fragment"],"mappings":"+GAA+B,YAAA,CAE7B,MAAAA,GADDC,EAAA,CAAA,CAAA,CAMA"}

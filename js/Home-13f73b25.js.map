@@ -1,1 +1,0 @@
-{"version":3,"file":"Home-13f73b25.js","sources":["../../src/components/Home.jsx"],"sourcesContent":["export default function Home() {\n\treturn (\n\t\t<>\n\t\t\t{/* <section className=\"about\">\n\t\t\t</section> */}\n\t\t</>\n\t);\n}\n"],"names":["_jsx","_Fragment"],"mappings":"4EAA+B,YAAA,CAE7B,MAAAA,GADDC,EAAA,CAAA,CAAA,CAMA"}
