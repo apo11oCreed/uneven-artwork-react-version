@@ -10,7 +10,7 @@ export default function App() {
 	return (
 		<BrowserRouter>
 			<div className='tw-bg-left-top tw-bg-cover'>
-				<a className='tw-absolute tw-left-[-1000px] focus:tw-static' href="#mainHeader" >Skip to main content</a>
+				<a className='tw-absolute tw-left-[-1000px] focus:tw-static' href="#mainContent" >Skip to main content</a>
 				<Header setPage={setPage} siteName='Natalie Correia' />
 				<Main page={page} />
 				<Footer />

@@ -74,7 +74,7 @@
 				}
 			}
 			#root {
-				@apply tw-my-[6.8rem] sm:tw-my-[6.8rem];
+				@apply tw-my-[5.8rem] sm:tw-my-[5.8rem];
 			}
 			#titleAnimate {
 				@apply tw-text-[4.5rem] sm:tw-text-[7.2rem];
@@ -100,36 +100,38 @@
 			header {
 				@apply tw-h-0 tw-bg-none tw-border-none;
 				box-shadow: theme(boxShadows.thinBlackBorder);
-				nav {
-					@apply tw-absolute tw-z-10;
+				.nav-wrapper {
+					@apply tw-absolute tw-z-10 bg-blue tw-px-[2rem] tw-rounded-bl-lg tw-rounded-br-lg tw-w-fit tw-mx-auto -tw-translate-x-2/4 tw-left-2/4;
 					top: -20rem;
 					box-shadow: 0 0 4px 2px rgb(0 0 0 / 16%);
 					&.moveNavDown {
 						top: 0;
 						@apply tw-fixed;
 					}
-					&.tw-main {
-						@apply sm:tw-block bg-blue tw-px-[2rem] tw-pb-[1.5rem] tw-pt-[1rem] tw-rounded-bl-lg tw-rounded-br-lg tw-w-fit tw-mx-auto -tw-translate-x-2/4 tw-left-2/4;
-						p {
-							@apply tw-block tw-leading-none tw-text-center;
-							color: #fff;
-						}
-						hr {
+					hr {
 							@apply tw-h-0 tw-bg-none tw-border-none tw-my-4;
 							box-shadow: theme(boxShadows.hr-white);
 						}
-						ul {
-							@apply tw-grid tw-grid-rows-1;
-							grid-template-columns: theme(gridTemplateColumns.minmax10);
-							li {
-								a {
-									@apply tw-block tw-leading-none tw-text-center navXs sm:default;
-									color: #fff;
-								}
-								&.home-link {
-									@apply tw-flex-grow;
+					nav {
+						&.tw-main {
+							@apply sm:tw-block tw-pb-[1.5rem] tw-pt-[1rem];
+							p {
+								@apply tw-block tw-leading-none tw-text-center;
+								color: #fff;
+							}
+							ul {
+								@apply tw-grid tw-grid-rows-1;
+								grid-template-columns: theme(gridTemplateColumns.minmax10);
+								li {
 									a {
-										@apply tw-flex tw-relative;
+										@apply tw-block tw-leading-none tw-text-center navXs sm:default;
+										color: #fff;
+									}
+									&.home-link {
+										@apply tw-flex-grow;
+										a {
+											@apply tw-flex tw-relative;
+										}
 									}
 								}
 							}
@@ -290,18 +292,19 @@
 			&::-webkit-scrollbar-corner {
 				background-color: transparent;
 			}
-			p{
-				&#dialog_description{
-					font-size:theme(fontSizes.modalDescription);
+			p {
+				&#dialog_description {
+					font-size: theme(fontSizes.modalDescription);
 				}
 			}
 		}
 		form {
 			@apply tw-flex tw-justify-center tw-flex-wrap;
-			legend{
+			legend {
 				flex: 0 0 100%;
 			}
-			select, label {
+			select,
+			label {
 				@apply tw-text-[1.6rem] tw-mr-[1rem];
 			}
 		}

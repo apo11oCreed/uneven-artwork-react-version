@@ -6,6 +6,7 @@ export default defineConfig({
   base: '/',
   plugins: [react()],
   build: {
+    sourcemap:true,
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
