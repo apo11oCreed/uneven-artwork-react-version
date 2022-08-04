@@ -27,8 +27,6 @@ This is a build for my daughter's portfolio website.
 
 ### Todos
 
-* Ensure screenreader focus transitions to artwork modal. Issue discovered on Mac Voiceover.
-* Add 64 base encoded image for site favicon.
-* Post most recent content to Contentful.
+* Ensure modal overlay stays fixed where scroll affects only active modal and not page content.
 
 
