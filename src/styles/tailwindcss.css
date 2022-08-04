@@ -194,12 +194,12 @@
 						@apply tw-p-8;
 						color: #000000;
 						p {
-							@apply tw-text-[1.6rem] tw-leading-[1.45] tw-mb-6;
+							@apply tw-text-[1.6rem] tw-leading-[1.45];
 						}
 						img {
-							margin: 4rem 0;
-							border-bottom: 1px solid black;
-							padding-bottom: 4rem;
+							&:last-of-type{
+								@apply tw-border-b-0;
+							}
 						}
 					}
 					.overlay {

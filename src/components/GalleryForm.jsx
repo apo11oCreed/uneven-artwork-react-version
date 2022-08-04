@@ -101,6 +101,7 @@ export default function GalleryForm() {
 
 			setImgCollection(filteredArray);
 		});
+
 	}, []);
 
 	const cacheImages = async (imgArray, set) => {
