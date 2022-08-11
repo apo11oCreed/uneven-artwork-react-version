@@ -34,6 +34,7 @@
 
 @layer components {
 	html {
+		--main-paddin-top: 6.8rem;
 		font-family: 'Roboto', sans-serif;
 		font-size: 8px;
 		@screen md {
@@ -78,6 +79,7 @@
 			}
 			#titleAnimate {
 				@apply tw-text-[4.5rem] sm:tw-text-[7.2rem];
+				top: calc(50% - var(--main-paddin-top));
 				letter-spacing: normal;
 				font-family: 'Unna', serif;
 				&.titleTextSpread {
@@ -109,9 +111,9 @@
 						@apply tw-fixed;
 					}
 					hr {
-							@apply tw-h-0 tw-bg-none tw-border-none tw-my-4;
-							box-shadow: theme(boxShadows.hr-white);
-						}
+						@apply tw-h-0 tw-bg-none tw-border-none tw-my-4;
+						box-shadow: theme(boxShadows.hr-white);
+					}
 					nav {
 						&.tw-main {
 							@apply sm:tw-block tw-pb-[1.5rem] tw-pt-[1rem];
@@ -140,6 +142,7 @@
 				}
 			}
 			main {
+				padding-top: var(--main-paddin-top);
 				z-index: 0;
 				&:before {
 					@apply background-splash;
@@ -197,7 +200,7 @@
 							@apply tw-text-[1.6rem] tw-leading-[1.45];
 						}
 						img {
-							&:last-of-type{
+							&:last-of-type {
 								@apply tw-border-b-0;
 							}
 						}

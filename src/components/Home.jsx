@@ -1,8 +1,9 @@
-export default function Home() {
+import TitleAnimated from './TitleAnimated';
+
+export default function Home(props) {
 	return (
 		<>
-			{/* <section className="about">
-			</section> */}
+			<TitleAnimated siteName='Natalie Correia' />
 		</>
 	);
 }

@@ -21,6 +21,7 @@ export default function About() {
 					}
 				}){
 					items{
+						id
 						title
 						text(locale:"en-US"){
 							json
@@ -64,7 +65,8 @@ export default function About() {
 		<section className='about'>
 			
 			<h2 className='tw-text-black tw-font-bold'>About Me</h2>
-			{copyBaseCollection.map((item,index)=>{
+			{copyBaseCollection.sort((a, b) => a.id - b.id).map((item,index)=>{
+				//https://stackoverflow.com/questions/51219133/how-to-sort-a-map-by-a-specific-field-in-es6-react
 				return (
 					<CopySingleImage key={index} copyimage={item} />
 				);
