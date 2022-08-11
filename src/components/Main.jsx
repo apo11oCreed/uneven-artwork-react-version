@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Loader from './Loader';
 
@@ -8,10 +8,9 @@ const GalleryForm = React.lazy(() => import('./GalleryForm'));
 
 export default function Main(props) {
 	const {page}=props;
-	let pageClass = '';
 
 	return (
-		<main id='mainContent' tabIndex='0' role='main' className={`tw-container tw-mx-auto ${(pageClass = page == '/' ? 'home' : 'not-home')}`}>
+		<main tabIndex='0' role='main' className={`tw-container tw-mx-auto ${page}`}>
 			<Switch>
 				<Route
 					path='/about'

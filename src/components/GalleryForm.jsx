@@ -124,7 +124,7 @@ export default function GalleryForm() {
 		<section className='gallery'>
 			<form>
 			<legend><h2 id='galleryTitle' className='tw-font-bold tw-capitalize tw-text-center tw-mb-[2rem]'>
-				Portfolio : All Samples
+				All Samples
 			</h2></legend>
 				<label htmlFor='tagName'>Select Category</label>
 				<select name='tag' id='tagName'>

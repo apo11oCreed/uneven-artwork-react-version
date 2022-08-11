@@ -28,5 +28,5 @@ This is a build for my daughter's portfolio website.
 ### Todos
 
 * Ensure modal overlay stays fixed where scroll affects only active modal and not page content.
-
+* Fix responsiveness of modal on mobile screens
 

@@ -7,7 +7,6 @@ export default function Modal({ image, showModal, activateTrap }) {
 		if (process.env.NODE_ENV !== 'production') {
 			const body = document.querySelector('.modal');
 			const tabbables = tabbable(body, [{ includeContainer: true }]);
-			console.log(tabbables);
 		}
 
 		document.addEventListener('keyup', handleEscapeKey);

@@ -27,21 +27,25 @@ export default function Header({ setPage }) {
 	};
 
 	useEffect(() => {
-		setPage(location.pathname);
+
+		pageClass = location.pathname == '/' ? 'home' : location.pathname.substring(1);
+
+		setPage(pageClass);
+
+		document.title=`Uneven Artwork | ${pageClass.charAt(0).toUpperCase() + pageClass.slice(1)}`;
+		// https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
 
 		if (location.pathname == '/') {
-			document.title='Uneven Artwork | Home';
 			setTimeout(() => {
 				mainMenuAnimate();
 			}, 1000);
 		} else {
-			document.title='Uneven Artwork | ' + location.pathname.substring(1);
 			mainMenuAnimate();
 		}
 	}, [location]);
 
 	return (
-		<header className={`tw-w-full tw-container tw-mx-auto sm:tw-block ${(pageClass = location.pathname == '/' ? 'home' : 'not-home')}`}>
+		<header className={`tw-w-full tw-container tw-mx-auto sm:tw-block ${pageClass = location.pathname == '/' ? 'home' : location.pathname.substring(1)}`}>
 			<Menu menuRef={menuRef} className='tw-w-full tw-container tw-mx-auto tw-main' />
 		</header>
 	);
