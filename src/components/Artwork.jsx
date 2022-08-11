@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from './Modal';
 
 export default function Artwork(props) {
@@ -8,6 +8,17 @@ export default function Artwork(props) {
 	const [showModal, setShowModal] = useState(false);
 	const [activateTrap, setActivateTrap] = useState(false);
 	const [modalContent, setModalContent] = useState({});
+
+	useEffect(()=>{
+
+		if(showModal){
+			document.body.style.overflow='hidden';
+		} else {
+			console.log('test1');
+			document.body.removeAttribute('style');
+		}
+		
+	},[showModal]);
 
 	return (
 		<>

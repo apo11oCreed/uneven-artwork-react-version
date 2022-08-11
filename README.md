@@ -1,4 +1,4 @@
-# Portfolio Site built with Vite, React, and TailwindCSS
+# Portfolio Site built with Vite, React, TailwindCSS, and GraphQL
 
 This is a build for my daughter's portfolio website.
 

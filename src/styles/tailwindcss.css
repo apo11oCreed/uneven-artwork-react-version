@@ -23,7 +23,7 @@
 					font-family: theme(fontFamily.unna);
 				}
 				h1 {
-					@apply tw-text-center tw-text-[2.8rem] sm:tw-text-[3.2rem];
+					@apply tw-text-center tw-text-[2.8rem] sm:tw-text-[3.2rem] tw-leading-[1];
 					color: #fff;
 					font-size: theme(fontSize.h1);
 					@media screen and (max-width: 480px) and (orientation: portrait) {
@@ -57,12 +57,12 @@
 				@apply tw-h-0 tw-bg-none tw-border-none;
 				box-shadow: theme(boxShadow.thinBlackBorder);
 				hr {
-					@apply tw-h-0 tw-bg-none tw-border-none tw-my-4;
+					@apply tw-h-0 tw-bg-none tw-border-none tw-my-5;
 					box-shadow: theme(boxShadow.hr-white);
 				}
 				/* Menu.jsx */
 				.nav-wrapper {
-					@apply tw-absolute tw-z-10 bg-blue tw-px-[2rem] tw-rounded-bl-lg tw-rounded-br-lg tw-w-fit tw-mx-auto -tw-translate-x-2/4 tw-left-2/4;
+					@apply tw-absolute tw-z-10 bg-blue tw-px-[2rem] tw-py-[1.5rem] tw-rounded-bl-lg tw-rounded-br-lg tw-w-fit tw-mx-auto -tw-translate-x-2/4 tw-left-2/4;
 					top: -20rem;
 					box-shadow: 0 0 4px 2px rgb(0 0 0 / 16%);
 					&.moveNavDown {
@@ -71,7 +71,7 @@
 					}
 					nav {
 						&.tw-main {
-							@apply sm:tw-block tw-pb-[1.5rem] tw-pt-[1rem];
+							@apply sm:tw-block;
 							p {
 								@apply tw-block tw-leading-none tw-text-center;
 								color: #fff;
@@ -248,7 +248,7 @@
 		}
 		/* Modal.jsx */
 		.modal {
-			@apply tw-overflow-scroll sm:tw-overflow-auto;
+			@apply sm:tw-overflow-auto;
 			width: calc(100% - 2rem);
 			scrollbar-color: #999 #333;
 			img {

@@ -23,11 +23,11 @@ export default function Modal({ image, showModal, activateTrap }) {
 	return (
 		<FocusTrap>
 			<div>
-				<div className='modal xs:tw-w-full sm:tw-max-h-[100vh] tw-h-auto tw-block tw-fixed tw-left-1/2 -tw-translate-x-2/4 tw-top-2/4 -tw-translate-y-2/4  tw-z-30 tw-overflow-y-scroll sm:tw-max-w-[58.5rem] tw-my-[2rem] sm:tw-px-[2rem]' role='dialog' aria-labelledby='dialog_label' aria-describedby='dialog_description' aria-modal='true' tabIndex='0'>
-					<div className='header tw-flex tw-justify-end'>
+				<div className='modal xs:tw-w-full sm:tw-max-h-[100vh] tw-h-full sm:tw-h-auto tw-block tw-fixed tw-left-1/2 -tw-translate-x-2/4 tw-top-0 sm:tw-top-2/4 sm:-tw-translate-y-2/4  tw-z-30 sm:tw-max-w-[58.5rem] tw-my-[2rem] sm:tw-px-[2rem]' role='dialog' aria-labelledby='dialog_label' aria-describedby='dialog_description' aria-modal='true' tabIndex='0'>
+					<div className='header tw-flex tw-justify-end tw-py-[1rem] tw-w-full tw-fixed'>
 						<button
 							aria-label='Close'
-							className='tw-right-0 tw-top-0 tw-block tw-border-2 tw-p-[1rem] tw-rounded-full tw-leading-none tw-font-bold tw-text-xl hover:tw-cursor-pointer'
+							className='tw-border-black tw-right-0 tw-text-[2.6rem] tw-top-0 tw-block tw-border-2 tw-p-[1rem] tw-rounded-full  tw-font-bold tw-text-xl hover:tw-cursor-pointer tw-leading-[75%]'
 							onClick={() => {
 								showModal(false);
 								activateTrap(false);
@@ -35,7 +35,7 @@ export default function Modal({ image, showModal, activateTrap }) {
 							X
 						</button>
 					</div>
-					<div className='body'>
+					<div className='body tw-py-[6rem] tw-overflow-y-scroll tw-h-full'>
 						<figure>
 							<img src={image.url} alt='' />
 							<figcaption>
