@@ -234,6 +234,61 @@
 									}
 								}
 							}
+							/* Modal.jsx */
+							.modal {
+								/* @apply sm:tw-overflow-auto; */
+								width: calc(100% - 2rem);
+								scrollbar-color: #999 #333;
+								img {
+									height: auto;
+									margin: 0 auto;
+								}
+								/* &::-webkit-scrollbar {
+									-webkit-appearance: none;
+									@apply tw-w-[1rem] tw-ml-[10rem];
+								}
+								&::-webkit-scrollbar-button {
+									@apply bg-blue;
+								}
+								&::-webkit-scrollbar-track {
+									background-color: transparent;
+									background-clip: content-box;
+								}
+								&::-webkit-scrollbar-thumb {
+									@apply bg-orange tw-rounded-full;
+									border: none;
+								}
+								&::-webkit-scrollbar-corner {
+									background-color: transparent;
+								} */
+								.body {
+									height: calc(100% - 12rem);
+									padding-right: 10px;
+									&::-webkit-scrollbar {
+										-webkit-appearance: none;
+										@apply tw-w-[1rem] tw-ml-[10rem];
+									}
+									&::-webkit-scrollbar-button {
+										@apply bg-blue;
+									}
+									&::-webkit-scrollbar-track {
+										@apply tw-bg-black tw-rounded-full;
+										background-clip: content-box;
+									}
+									&::-webkit-scrollbar-thumb {
+										@apply bg-orange tw-rounded-full;
+										border: none;
+									}
+									&::-webkit-scrollbar-corner {
+										background-color: transparent;
+									}
+									p {
+										&#dialog_description {
+											font-size: theme(fontSize.modalDescription);
+										}
+									}
+								}
+							}
 						}
 					}
 				}
@@ -243,39 +298,6 @@
 				& > div {
 					@apply tw-flex tw-flex-col-reverse sm:tw-flex-row;
 					font-size: 1.4rem;
-				}
-			}
-		}
-		/* Modal.jsx */
-		.modal {
-			@apply sm:tw-overflow-auto;
-			width: calc(100% - 2rem);
-			scrollbar-color: #999 #333;
-			img {
-				height: auto;
-				margin: 0 auto;
-			}
-			&::-webkit-scrollbar {
-				-webkit-appearance: none;
-				@apply tw-w-[1rem] tw-ml-[10rem];
-			}
-			&::-webkit-scrollbar-button {
-				@apply bg-blue;
-			}
-			&::-webkit-scrollbar-track {
-				background-color: transparent;
-				background-clip: content-box;
-			}
-			&::-webkit-scrollbar-thumb {
-				@apply bg-orange tw-rounded-full;
-				border: none;
-			}
-			&::-webkit-scrollbar-corner {
-				background-color: transparent;
-			}
-			p {
-				&#dialog_description {
-					font-size: theme(fontSize.modalDescription);
 				}
 			}
 		}
