@@ -2,9 +2,9 @@ import React, { Suspense, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Loader from './Loader';
 
-const About = React.lazy(() => import('./About'));
-const Home = React.lazy(() => import('./Home'));
-const GalleryForm = React.lazy(() => import('./GalleryForm'));
+const About = React.lazy(() => import('../About/About'));
+const Home = React.lazy(() => import('../Home/Home'));
+const GalleryForm = React.lazy(() => import('../Portfolio/GalleryForm'));
 
 export default function Main(props) {
 	const {page}=props;

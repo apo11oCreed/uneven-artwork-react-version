@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import Loader from './Loader';
+import Loader from '../Common/Loader';
 const Artwork = React.lazy(()=>import('./Artwork'));
 
 export default function ArtworkContainer({ imageCollection }) {
