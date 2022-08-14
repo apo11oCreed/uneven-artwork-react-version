@@ -87,6 +87,9 @@ export default function GalleryForm() {
 		const galleryTitle = document.getElementById('galleryTitle');
 
 		filterSelector.addEventListener('change', (e) => {
+
+			// build dispatch action
+			
 			let filteredArray = [];
 
 			if (e.target.value == 'all') {
@@ -101,7 +104,6 @@ export default function GalleryForm() {
 
 			setImgCollection(filteredArray);
 		});
-
 	}, []);
 
 	const cacheImages = async (imgArray, set) => {
@@ -123,9 +125,11 @@ export default function GalleryForm() {
 	return (
 		<section className='gallery'>
 			<form>
-			<legend><h2 id='galleryTitle' className='tw-font-bold tw-capitalize tw-text-center tw-mb-[2rem]'>
-				All Samples
-			</h2></legend>
+				<legend>
+					<h2 id='galleryTitle' className='tw-font-bold tw-capitalize tw-text-center tw-mb-[2rem]'>
+						All Samples
+					</h2>
+				</legend>
 				<label htmlFor='tagName'>Select Category</label>
 				<select name='tag' id='tagName'>
 					<option value='all'>All</option>
