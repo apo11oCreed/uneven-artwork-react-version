@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ArtworkContainer from './ArtworkContainer';
+import { useDispatch } from 'react-redux';
 
 export default function GalleryForm() {
 	const contentful = import.meta.env;
@@ -7,6 +8,8 @@ export default function GalleryForm() {
 	const [imgCollection, setImgCollection] = useState([]);
 	const [tagFilter, setTagFilter] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+
+	const dispatch=useDispatch();
 
 	useEffect(() => {
 		const spaceId = contentful.VITE_CONTENTFUL_SPACE_ID;
@@ -45,6 +48,8 @@ export default function GalleryForm() {
 
 		let imagesQuery = [],
 			assetsQuery = [];
+
+		dispatch();
 
 		window
 			.fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/master`, {
@@ -86,10 +91,12 @@ export default function GalleryForm() {
 		const filterSelector = document.getElementById('tagName');
 		const galleryTitle = document.getElementById('galleryTitle');
 
+		// filterSelector should be converted to feature and added to Store to render based on the state of the Select drop down
+
 		filterSelector.addEventListener('change', (e) => {
 
 			// build dispatch action
-			
+
 			let filteredArray = [];
 
 			if (e.target.value == 'all') {
