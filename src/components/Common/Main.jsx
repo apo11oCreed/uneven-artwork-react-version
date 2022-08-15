@@ -1,19 +1,17 @@
 import React, { Suspense, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Loader from './Loader';
-import { useDispatch } from 'react-redux';
 
-const About = React.lazy(() => import('../About/About'));
-const Home = React.lazy(() => import('../Home/Home'));
-const GalleryForm = React.lazy(() => import('../Portfolio/GalleryForm'));
+const About = React.lazy(() => import('../about/About'));
+const Home = React.lazy(() => import('../home/Home'));
+const GalleryForm = React.lazy(() => import('../portfolio/GalleryForm'));
 
-const dispatch=useDispatch();
+//const dispatch=useDispatch();
 
 export default function Main(props) {
 	const {page}=props;
 
 	useEffect(()=>{
-		dispatch();
 	});
 
 	return (

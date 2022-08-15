@@ -4,6 +4,8 @@ import axe from '@axe-core/react';
 import App from './App';
 import './styles/tailwindcss.css';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { store } from './store/store';
+import { Provider } from 'react-redux';
 
 // axe-core issue to resolve: findDOMNode is deprecated. Instead, add a ref directly to the element you want to reference
 if (process.env.NODE_ENV !== 'production') {
@@ -13,7 +15,9 @@ if (process.env.NODE_ENV !== 'production') {
 ReactDOM.render(
 	<React.StrictMode>
 		<Router>
-			<App />
+			<Provider store={store}>
+				<App />
+			</Provider>
 		</Router>
 	</React.StrictMode>,
 	document.getElementById('root')
