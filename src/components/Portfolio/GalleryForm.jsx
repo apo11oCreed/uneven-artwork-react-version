@@ -49,7 +49,7 @@ export default function GalleryForm() {
 		let imagesQuery = [],
 			assetsQuery = [];
 
-		dispatch();
+		//dispatch();
 
 		window
 			.fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/master`, {
