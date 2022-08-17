@@ -1,0 +1,10 @@
+name: Build and Deploy
+on: [push]
+permissions:
+  contents: write
+jobs:
+  build-and-deploy:
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+        run: env
