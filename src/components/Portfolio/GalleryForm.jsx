@@ -9,7 +9,7 @@ export default function GalleryForm() {
 	const [tagFilter, setTagFilter] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
-	const dispatch=useDispatch();
+	//const dispatch=useDispatch();
 
 	useEffect(() => {
 		const spaceId = contentful.VITE_CONTENTFUL_SPACE_ID;
