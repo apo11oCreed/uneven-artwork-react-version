@@ -1,7 +1,8 @@
 name: CI and CD
-on: push
-  branches:
-    - master
+on:
+  push:
+    branches:
+      - master
 jobs:
   build-test-deploy:
     steps:
