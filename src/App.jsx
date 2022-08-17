@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Header from '.src/components/common/Header';
-import Main from '.src/components/common/Main';
-import Footer from '.src/components/common/Footer';
+import Header from './src/components/common/Header';
+import Main from './src/components/common/Main';
+import Footer from './src/components/common/Footer';
 import { BrowserRouter } from 'react-router-dom';
 
 export default function App() {
