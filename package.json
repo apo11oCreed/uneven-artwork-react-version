@@ -7,7 +7,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite --port 8080 --host",
-    "build": "vite build --base=/",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
