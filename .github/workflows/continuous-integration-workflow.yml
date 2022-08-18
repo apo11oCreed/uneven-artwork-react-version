@@ -18,6 +18,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           target_branch: gh-pages
+          folder: build
         env:
           GITHUB_TOKEN:
             ${{ secrets.UNEVEN_ARTWORK_REACT }}

@@ -7,6 +7,8 @@ import { BrowserRouter } from 'react-router-dom';
 export default function App() {
 	// Page state should be converted to feature and added to Store to allow for all components to render elements based on the current page
 
+	// Testing
+
 	const [page, setPage] = useState();
 
 	return (
