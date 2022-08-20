@@ -9,8 +9,15 @@ const initialState = {
 const gallerySlice = createSlice({
     name: 'gallery',
     initialState,
+    reducers:{
+        filterImages: (state,{ payload }) => {
+            if(payload.length > 0){
+                state.images=payload;
+            }
+        }
+    }
 });
 
-console.log(gallerySlice);
+export const { filterImages } = gallerySlice.actions;
 
 export default gallerySlice.reducer;

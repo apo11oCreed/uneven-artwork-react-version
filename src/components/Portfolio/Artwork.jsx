@@ -14,7 +14,6 @@ export default function Artwork(props) {
 		if(showModal){
 			document.body.style.overflow='hidden';
 		} else {
-			console.log('test1');
 			document.body.removeAttribute('style');
 		}
 		

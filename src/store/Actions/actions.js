@@ -1,11 +1,3 @@
-export const FILTER_IMAGES = 'FILTER_IMAGES';
+import { createAction } from '@reduxjs/toolkit';
 
-
-export const LOAD_IMAGES_IN_PROGRESS = 'LOAD_IMAGES_IN_PROGRESS';
-
-
-export const LOAD_IMAGES_SUCCESS = 'LOAD_IMAGES_SUCCESS';
-
-
-export const LOAD_IMAGES_FAILURE = 'LOAD_IMAGES_FAILURE';
-
+export const filterImages=createAction('gallery/filterImages');

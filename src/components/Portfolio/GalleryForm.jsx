@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ArtworkContainer from './ArtworkContainer';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { filterImages } from '../../store/Slices/gallerySlice';
 
 export default function GalleryForm() {
+	const images = useSelector((state) => state.gallery.images);
+	const dispatch = useDispatch();
+
+	const filterSelector = useRef();
+	const galleryTitle = useRef();
+
 	const contentful = import.meta.env;
-
-	const [imgCollection, setImgCollection] = useState([]);
-	const [tagFilter, setTagFilter] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
-
-	const dispatch=useDispatch();
-
-	useEffect(() => {
-		const spaceId = contentful.VITE_CONTENTFUL_SPACE_ID;
-		const accessToken = contentful.VITE_CONTENTFUL_DELIVERY_API_ACCESS_TOKEN;
-		const query = `
+	const spaceId = contentful.VITE_CONTENTFUL_SPACE_ID;
+	const accessToken = contentful.VITE_CONTENTFUL_DELIVERY_API_ACCESS_TOKEN;
+	const query = `
 	query imagesAssets {
 		imageCollection{
 			items{
@@ -46,22 +45,23 @@ export default function GalleryForm() {
 	}
 	`;
 
-		let imagesQuery = [],
-			assetsQuery = [];
+	const [tagFilter, setTagFilter] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
-		dispatch();
+	let imagesQuery = [],
+		assetsQuery = [];
 
-		window
-			.fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/master`, {
-				method: 'POST',
-				headers: {
-					'content-type': 'application/json',
-					Authorization: `Bearer ${accessToken}`,
-				},
-				body: JSON.stringify({
-					query,
-				}),
-			})
+	useEffect(() => {
+		fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/master`, {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json',
+				Authorization: `Bearer ${accessToken}`,
+			},
+			body: JSON.stringify({
+				query,
+			}),
+		})
 			.then((res) => res.json())
 			.then(({ data, errors }) => {
 				if (errors) {
@@ -78,39 +78,22 @@ export default function GalleryForm() {
 					return item.contentfulMetadata.tags[0].name;
 				});
 
-				// Initial rendering of portfolio images
-				setImgCollection(imagesQuery);
+				// Update images data array in redux store
+				dispatch(filterImages(imagesQuery));
 
 				// Initial filter options
 				setTagFilter([...new Set(tags)]);
 
 				// Precache images
 				cacheImages(imageUrls, setIsLoading);
+				
 			});
 
-		const filterSelector = document.getElementById('tagName');
-		const galleryTitle = document.getElementById('galleryTitle');
-
-		// filterSelector should be converted to feature and added to Store to render based on the state of the Select drop down
-
-		filterSelector.addEventListener('change', (e) => {
-
-			// build dispatch action
-
-			let filteredArray = [];
-
-			if (e.target.value == 'all') {
-				filteredArray = imagesQuery;
-			} else {
-				filteredArray = imagesQuery.filter((item) => {
-					return item.image.contentfulMetadata.tags[0].name == e.target.value;
-				});
-			}
-
-			galleryTitle.innerHTML = `${e.target.value} Samples`;
-
-			setImgCollection(filteredArray);
-		});
+		if (filterSelector && filterSelector.current) {
+			filterSelector.current.addEventListener('change', filter);
+		} else {
+			filterSelector.current.removeEventListener('change', filter);
+		}
 	}, []);
 
 	const cacheImages = async (imgArray, set) => {
@@ -129,16 +112,35 @@ export default function GalleryForm() {
 		set(false);
 	};
 
+	// filterSelector should be converted to feature and added to Store to render based on the state of the Select drop down
+
+	const filter = (e) => {
+		let filteredArray = [];
+
+		if (e.target.value == 'all') {
+			filteredArray = imagesQuery;
+		} else {
+			filteredArray = imagesQuery.filter((item) => {
+				return item.image.contentfulMetadata.tags[0].name == e.target.value;
+			});
+		}
+
+		galleryTitle.current.innerHTML = `${e.target.value} Samples`;
+
+		// build dispatch action
+		dispatch(filterImages(filteredArray));
+	};
+
 	return (
 		<section className='gallery'>
 			<form>
 				<legend>
-					<h2 id='galleryTitle' className='tw-font-bold tw-capitalize tw-text-center tw-mb-[2rem]'>
+					<h2 ref={galleryTitle} className='tw-font-bold tw-capitalize tw-text-center tw-mb-[2rem]'>
 						All Samples
 					</h2>
 				</legend>
 				<label htmlFor='tagName'>Select Category</label>
-				<select name='tag' id='tagName'>
+				<select name='tag' ref={filterSelector}>
 					<option value='all'>All</option>
 					{tagFilter.map((tag, index) => {
 						return (
@@ -149,7 +151,7 @@ export default function GalleryForm() {
 					})}
 				</select>
 			</form>
-			<ArtworkContainer imageCollection={imgCollection} />
+			<ArtworkContainer imageCollection={images} />
 		</section>
 	);
 }
