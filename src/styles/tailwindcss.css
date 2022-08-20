@@ -176,7 +176,7 @@
 						@apply bg-splash;
 					}
 					/* GalleryForm.jsx */
-					&.gallery {
+					&.portfolio {
 						form {
 							@apply tw-flex tw-justify-center tw-flex-wrap;
 							legend {
@@ -269,7 +269,7 @@
 										@apply tw-w-[1rem] tw-ml-[10rem];
 									}
 									&::-webkit-scrollbar-button {
-										@apply bg-blue;
+										/*@apply bg-blue;*/
 									}
 									&::-webkit-scrollbar-track {
 										@apply tw-bg-black tw-rounded-full;
@@ -351,11 +351,11 @@
 		background-color: theme(colors.splash.rgba);
 		background-color: theme(colors.splash.hsla);
 	}
-	.galleryThreeCols {
-		flex-basis: theme(spacing.gallery-three-cols);
+	.portfolioThreeCols {
+		flex-basis: theme(spacing.portfolio-three-cols);
 	}
-	.galleryTwoCols {
-		flex-basis: theme(spacing.gallery-two-cols);
+	.portfolioTwoCols {
+		flex-basis: theme(spacing.portfolio-two-cols);
 	}
 	.navXs {
 		font-size: theme(fontSize.navXs);

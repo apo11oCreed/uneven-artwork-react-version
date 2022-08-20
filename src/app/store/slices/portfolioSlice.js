@@ -6,8 +6,8 @@ const initialState = {
     isLoading: true,
 }
 
-const gallerySlice = createSlice({
-    name: 'gallery',
+const portfolioSlice = createSlice({
+    name: 'portfolio',
     initialState,
     reducers:{
         filterImages: (state,{ payload }) => {
@@ -18,6 +18,6 @@ const gallerySlice = createSlice({
     }
 });
 
-export const { filterImages } = gallerySlice.actions;
+export const { filterImages } = portfolioSlice.actions;
 
-export default gallerySlice.reducer;
+export default portfolioSlice.reducer;

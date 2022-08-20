@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import galleryReducer from './Slices/gallerySlice';
+import portfolioReducer from './slices/portfolioSlice';
 
 export const store = configureStore({
     reducer: {
-        gallery: galleryReducer
+        portfolio: portfolioReducer
     },
 })

@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { filterImages } from "../Actions/actions";
+import { filterImages } from "../actions/actions";
 
 const initialState = {
     images: [],

@@ -1,11 +1,10 @@
 import React, { Suspense } from 'react';
-import Loader from '../common/Loader';
-const Artwork = React.lazy(()=>import('./Artwork'));
+import Loader from '../../app/components/common/Loader';
+const Artwork = React.lazy(()=>import('./Portfolio'));
 
 export default function ArtworkContainer({ imageCollection }) {
 
 	return (
-		<>
 			<ul className='tw-flex tw-flex-wrap tw-justify-between'>
 				{imageCollection.map((item, index) => {
 					return (
@@ -16,6 +15,5 @@ export default function ArtworkContainer({ imageCollection }) {
 					);
 				})}
 			</ul>
-		</>
 	);
 }

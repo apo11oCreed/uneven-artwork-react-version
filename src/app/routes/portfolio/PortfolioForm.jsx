@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ArtworkContainer from './ArtworkContainer';
+import ArtworkContainer from '../../../features/portfolio/PortfolioContainer';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterImages } from '../../store/Slices/gallerySlice';
+import { filterImages } from '../../../app/store/slices/portfolioSlice';
 
-export default function GalleryForm() {
-	const images = useSelector((state) => state.gallery.images);
+export default function PortfolioForm() {
+	const imagesSelector = useSelector((state) => state.portfolio.images);
 	const dispatch = useDispatch();
 
 	const filterSelector = useRef();
-	const galleryTitle = useRef();
+	const portfolioTitle = useRef();
 
 	const contentful = import.meta.env;
 	const spaceId = contentful.VITE_CONTENTFUL_SPACE_ID;
@@ -52,7 +52,7 @@ export default function GalleryForm() {
 		assetsQuery = [];
 
 	useEffect(() => {
-		fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/master`, {
+		window.fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/master`, {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
@@ -86,7 +86,7 @@ export default function GalleryForm() {
 
 				// Precache images
 				cacheImages(imageUrls, setIsLoading);
-				
+
 			});
 
 		if (filterSelector && filterSelector.current) {
@@ -125,17 +125,17 @@ export default function GalleryForm() {
 			});
 		}
 
-		galleryTitle.current.innerHTML = `${e.target.value} Samples`;
+		portfolioTitle.current.innerHTML = `${e.target.value} Samples`;
 
 		// build dispatch action
 		dispatch(filterImages(filteredArray));
 	};
 
 	return (
-		<section className='gallery'>
+		<section className='portfolio'>
 			<form>
 				<legend>
-					<h2 ref={galleryTitle} className='tw-font-bold tw-capitalize tw-text-center tw-mb-[2rem]'>
+					<h2 ref={portfolioTitle} className='tw-font-bold tw-capitalize tw-text-center tw-mb-[2rem]'>
 						All Samples
 					</h2>
 				</legend>
@@ -151,7 +151,7 @@ export default function GalleryForm() {
 					})}
 				</select>
 			</form>
-			<ArtworkContainer imageCollection={images} />
+			<ArtworkContainer imageCollection={imagesSelector} />
 		</section>
 	);
 }

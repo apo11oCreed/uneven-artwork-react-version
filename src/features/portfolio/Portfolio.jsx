@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Modal from './Modal';
+import Modal from '../../app/components/common/Modal';
 
 export default function Artwork(props) {
 	// ISSUE TO BE FIXED
@@ -16,12 +16,12 @@ export default function Artwork(props) {
 		} else {
 			document.body.removeAttribute('style');
 		}
-		
+
 	},[showModal]);
 
 	return (
 		<>
-			<li className='galleryTwoCols md:galleryThreeCols tw-rounded-lg tw-mt-[1.5rem] tw-overflow-hidden'>
+			<li className='portfolioTwoCols md:portfolioThreeCols tw-rounded-lg tw-mt-[1.5rem] tw-overflow-hidden'>
 				<figure className='tw-relative tw-w-auto tw-h-[25rem] tw-overflow-hidden tw-flex tw-justify-center tw-items-center tw-flex-col'>
 					<img className='tw-absolute tw-left-[50%] tw-top-[50%] -tw-translate-y-[50%] -tw-translate-x-[50%] tw-max-w-fit' src={item.image.url} alt='' />
 					<div className='overlay'></div>
