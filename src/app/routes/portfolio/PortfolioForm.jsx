@@ -13,6 +13,8 @@ export default function PortfolioForm() {
 	const contentful = import.meta.env;
 	const spaceId = contentful.VITE_CONTENTFUL_SPACE_ID;
 	const accessToken = contentful.VITE_CONTENTFUL_DELIVERY_API_ACCESS_TOKEN;
+	console.log('spaceId = ' + spaceId);
+	console.log('accessToken = ' + accessToken);
 	const query = `
 	query imagesAssets {
 		imageCollection{
