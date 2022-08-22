@@ -6,8 +6,6 @@ const About = React.lazy(() => import('../../routes/about/About'));
 const Home = React.lazy(() => import('../../routes/home/Home'));
 const PortfolioForm = React.lazy(() => import('../../routes/portfolio/PortfolioForm'));
 
-//const dispatch=useDispatch();
-
 export default function Main(props) {
 	const {page}=props;
 

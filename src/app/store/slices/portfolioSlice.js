@@ -9,10 +9,12 @@ const initialState = {
 const portfolioSlice = createSlice({
     name: 'portfolio',
     initialState,
-    reducers:{
-        filterImages: (state,{ payload }) => {
-            if(payload.length > 0){
-                state.images=payload;
+    reducers: {
+        filterImages: {
+            reducer: (state, { payload }) => {
+                if (payload.length > 0) {
+                    state.images = payload;
+                }
             }
         }
     }
