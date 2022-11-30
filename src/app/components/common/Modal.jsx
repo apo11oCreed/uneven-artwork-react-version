@@ -32,7 +32,7 @@ export default function Modal({ image, showModal, activateTrap }) {
 					<div className='header tw-flex tw-justify-end tw-py-[1rem] tw-w-full tw-fixed'>
 						<button
 							aria-label='Close'
-							className='tw-border-black tw-right-0 tw-text-[2.6rem] tw-top-0 tw-block tw-border-2 tw-p-[1rem] tw-rounded-full  tw-font-bold hover:tw-cursor-pointer tw-leading-[75%]'
+							className='tw-border-black tw-right-0 tw-text-[2.6rem] tw-top-0 tw-block tw-border-2 tw-p-[1rem] tw-rounded-full tw-font-bold hover:tw-cursor-pointer hover:tw-opacity-[0.5] hover:tw-scale-[1.125] tw-leading-[75%]'
 							onClick={() => {
 								dispatch(isVisible(false));
 								activateTrap(false);
