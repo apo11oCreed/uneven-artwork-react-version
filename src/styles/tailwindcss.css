@@ -369,9 +369,9 @@
 		background-color: theme(colors.ngc.blue.hsla);
 	}
 	.bg-pink {
-		background-color: theme(colors.ngc.light.pink-hex.DEFAULT);
-		background-color: theme(colors.ngc.light.pink-rgba);
-		background-color: theme(colors.ngc.light.pink-hsla);
+		background-color: theme(colors.ngc.pink.hex.DEFAULT);
+		background-color: theme(colors.ngc.pink.rgba);
+		background-color: theme(colors.ngc.pink.hsla);
 	}
 	.bg-green {
 		background-color: theme(colors.ngc.green.hex.DEFAULT);
@@ -384,8 +384,8 @@
 		background-color: theme(colors.ngc.orange.hsla);
 	}
 	.bg-dark-orange {
-		background-color: theme(colors.ngc.darkorange-hex.DEFAULT);
-		background-color: theme(colors.ngc.darkorange-rgba);
-		background-color: theme(colors.ngc.darkorange-hsla);
+		background-color: theme(colors.ngc.darkorange.hex.DEFAULT);
+		background-color: theme(colors.ngc.darkorange.rgba);
+		background-color: theme(colors.ngc.darkorange.hsla);
 	}
 }
