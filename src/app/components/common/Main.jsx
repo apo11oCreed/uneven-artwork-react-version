@@ -2,11 +2,9 @@ import React, { Suspense, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Loader from './Loader';
 
-const About = React.lazy(() => import('../about/About'));
-const Home = React.lazy(() => import('../home/Home'));
-const GalleryForm = React.lazy(() => import('../portfolio/GalleryForm'));
-
-//const dispatch=useDispatch();
+const About = React.lazy(() => import('../../routes/about/About'));
+const Home = React.lazy(() => import('../../routes/home/Home'));
+const PortfolioForm = React.lazy(() => import('../../routes/portfolio/PortfolioForm'));
 
 export default function Main(props) {
 	const {page}=props;
@@ -30,7 +28,7 @@ export default function Main(props) {
 					path='/portfolio'
 					render={(props) => (
 						<Suspense fallback={<Loader />}>
-							<GalleryForm {...props} />
+							<PortfolioForm {...props} />
 						</Suspense>
 					)}
 				/>

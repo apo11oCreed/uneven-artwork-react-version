@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 
 export default function TitleAnimated({siteName}) {
+
 	const titleRef = useRef();
 
 	const titleAnimate = () => {

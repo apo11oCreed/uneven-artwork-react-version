@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import Modal from './Modal';
+import Modal from '../../app/components/common/Modal';
+import { useSelector, useDispatch } from 'react-redux';
+import { defineImage, isVisible } from '../../app/store/slices/modalSlice';
 
-export default function Artwork(props) {
+export default function Portfolio(props) {
 	// ISSUE TO BE FIXED
 	const { item, index } = props;
+
+	const dispatch = useDispatch();
+	const image = useSelector((state) => state.modal.image);
+	const visible = useSelector((state) => state.modal.visible)
 
 	const [showModal, setShowModal] = useState(false);
 	const [activateTrap, setActivateTrap] = useState(false);
@@ -11,18 +17,17 @@ export default function Artwork(props) {
 
 	useEffect(()=>{
 
-		if(showModal){
+		if(visible){
 			document.body.style.overflow='hidden';
 		} else {
-			console.log('test1');
 			document.body.removeAttribute('style');
 		}
-		
-	},[showModal]);
+
+	},[visible]);
 
 	return (
 		<>
-			<li className='galleryTwoCols md:galleryThreeCols tw-rounded-lg tw-mt-[1.5rem] tw-overflow-hidden'>
+			<li className='portfolioTwoCols md:portfolioThreeCols tw-rounded-lg tw-mt-[1.5rem] tw-overflow-hidden'>
 				<figure className='tw-relative tw-w-auto tw-h-[25rem] tw-overflow-hidden tw-flex tw-justify-center tw-items-center tw-flex-col'>
 					<img className='tw-absolute tw-left-[50%] tw-top-[50%] -tw-translate-y-[50%] -tw-translate-x-[50%] tw-max-w-fit' src={item.image.url} alt='' />
 					<div className='overlay'></div>
@@ -34,8 +39,9 @@ export default function Artwork(props) {
 '
 						style={{ color: 'white', fontWeight: 700 }}
 						onClick={() => {
-							setModalContent(item.image);
-							setShowModal(true);
+							dispatch(defineImage(item.image));
+							dispatch(isVisible(true));
+							//setShowModal(true);
 							setActivateTrap(true);
 						}}>
 						<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' className='bi bi-arrows-angle-expand tw-mr-[1rem]' viewBox='0 0 16 16'>
@@ -45,7 +51,7 @@ export default function Artwork(props) {
 					</button>
 				</figure>
 			</li>
-			{showModal && <Modal image={modalContent} showModal={setShowModal} activateTrap={setActivateTrap} />}
+			{visible && image.title==item.image.title && <Modal image={image} showModal={setShowModal} activateTrap={setActivateTrap} />}
 		</>
 	);
 }
