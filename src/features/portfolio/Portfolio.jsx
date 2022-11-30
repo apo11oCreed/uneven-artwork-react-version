@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Modal from '../../app/components/common/Modal';
+import { useSelector, useDispatch } from 'react-redux';
+import { defineImage, isVisible } from '../../app/store/slices/modalSlice';
 
-export default function Artwork(props) {
+export default function Portfolio(props) {
 	// ISSUE TO BE FIXED
 	const { item, index } = props;
+
+	const dispatch = useDispatch();
+	const image = useSelector((state) => state.modal.image);
+	const visible = useSelector((state) => state.modal.visible)
 
 	const [showModal, setShowModal] = useState(false);
 	const [activateTrap, setActivateTrap] = useState(false);
@@ -11,13 +17,13 @@ export default function Artwork(props) {
 
 	useEffect(()=>{
 
-		if(showModal){
+		if(visible){
 			document.body.style.overflow='hidden';
 		} else {
 			document.body.removeAttribute('style');
 		}
 
-	},[showModal]);
+	},[visible]);
 
 	return (
 		<>
@@ -33,8 +39,9 @@ export default function Artwork(props) {
 '
 						style={{ color: 'white', fontWeight: 700 }}
 						onClick={() => {
-							setModalContent(item.image);
-							setShowModal(true);
+							dispatch(defineImage(item.image));
+							dispatch(isVisible(true));
+							//setShowModal(true);
 							setActivateTrap(true);
 						}}>
 						<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' className='bi bi-arrows-angle-expand tw-mr-[1rem]' viewBox='0 0 16 16'>
@@ -44,7 +51,7 @@ export default function Artwork(props) {
 					</button>
 				</figure>
 			</li>
-			{showModal && <Modal image={modalContent} showModal={setShowModal} activateTrap={setActivateTrap} />}
+			{visible && image.title==item.image.title && <Modal image={image} showModal={setShowModal} activateTrap={setActivateTrap} />}
 		</>
 	);
 }

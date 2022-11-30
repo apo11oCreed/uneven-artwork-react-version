@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ArtworkContainer from '../../../features/portfolio/PortfolioContainer';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterImages } from '../../../app/store/slices/portfolioSlice';
+import { filterImages, changeCategory } from '../../../app/store/slices/portfolioSlice';
 
 export default function PortfolioForm() {
 	const imagesSelector = useSelector((state) => state.portfolio.images);
@@ -75,6 +75,7 @@ export default function PortfolioForm() {
 
 				assetsQuery = data.assetCollection.items;
 				const tags = assetsQuery.map((item) => {
+					
 					return item.contentfulMetadata.tags[0].name;
 				});
 
@@ -119,9 +120,14 @@ export default function PortfolioForm() {
 
 		if (e.target.value == 'all') {
 			filteredArray = imagesQuery;
+			console.log(filteredArray);
 		} else {
 			filteredArray = imagesQuery.filter((item) => {
-				return item.image.contentfulMetadata.tags[0].name == e.target.value;
+				if(item.image.contentfulMetadata.tags[0].name==undefined){
+					console.log(item.image.contentfulMetadata.tags[0] + ' image is missing a tag.');
+				} else {
+					return item.image.contentfulMetadata.tags[0].name == e.target.value;
+				}
 			});
 		}
 
@@ -129,6 +135,7 @@ export default function PortfolioForm() {
 
 		// build dispatch action
 		dispatch(filterImages(filteredArray));
+		dispatch(changeCategory(filterSelector.current.value));
 	};
 
 	return (

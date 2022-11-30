@@ -13,13 +13,24 @@ const portfolioSlice = createSlice({
         filterImages: {
             reducer: (state, { payload }) => {
                 if (payload.length > 0) {
-                    state.images = payload;
+                    return {
+                        ...state,
+                        images: payload,
+                    }
+                }
+            }
+        },
+        changeCategory: {
+            reducer: (state, {payload}) => {
+                return {
+                    ...state,
+                    category: payload,
                 }
             }
         }
     }
 });
 
-export const { filterImages } = portfolioSlice.actions;
+export const { filterImages, changeCategory } = portfolioSlice.actions;
 
 export default portfolioSlice.reducer;
