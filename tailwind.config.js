@@ -51,9 +51,21 @@ module.exports = {
 			},
 			colors: {
 				splash: {
-					hex: '#6BD1D2',
-					rgba: 'rgba(107, 209, 210,1.0)',
-					hsla: 'hsla(181, 53%, 62%, 1.0)',
+					aqua:{
+						hex: '#6BD1D2',
+						rgba: 'rgba(107, 209, 210,1.0)',
+						hsla: 'hsla(181, 53%, 62%, 1.0)'
+					},
+					white:{
+						hex: '#FFFFFF',
+						rgba: 'rgba(250, 250, 250,1.0)',
+						hsla: 'hsla(360, 100%, 100%, 1.0)'
+					},
+					gray:{
+						hex: '#66666',
+						rgba: 'rgba(102, 102, 102,1.0)',
+						hsla: 'hsla(0, 0%, 40%, 1.0)'
+					}
 				},
 				ngc: {
 					blue: {

@@ -15,7 +15,7 @@
 			font-size: 62.5%;
 		}
 		body {
-			@apply bg-splash;
+			@apply bg-splash-aqua;
 			#root {
 				@apply tw-my-[5.8rem] sm:tw-my-[5.8rem];
 				h1,
@@ -173,7 +173,8 @@
 						}
 					}
 					.overlay {
-						@apply bg-splash;
+						@apply bg-splash-gray;
+						box-shadow: inset 0px 0px 200px 100px rgba(0,0,0,1.0);
 					}
 					/* GalleryForm.jsx */
 					&.portfolio {
@@ -263,7 +264,6 @@
 								} */
 								.body {
 									height: calc(100% - 12rem);
-									padding-right: 10px;
 									&::-webkit-scrollbar {
 										-webkit-appearance: none;
 										@apply tw-w-[1rem] tw-ml-[10rem];
@@ -283,7 +283,7 @@
 										background-color: transparent;
 									}
 									p {
-										&#dialog_description {
+										&.description {
 											font-size: theme(fontSize.modalDescription);
 										}
 									}
@@ -346,10 +346,20 @@
 		background-position: center top;
 		background-attachment: fixed;
 	}
-	.bg-splash {
-		background-color: theme(colors.splash.hex);
-		background-color: theme(colors.splash.rgba);
-		background-color: theme(colors.splash.hsla);
+	.bg-splash-aqua {
+		background-color: theme(colors.splash.aqua.hex);
+		background-color: theme(colors.splash.aqua.rgba);
+		background-color: theme(colors.splash.aqua.hsla);
+	}
+	.bg-splash-white {
+		background-color: theme(colors.splash.white.hex);
+		background-color: theme(colors.splash.white.rgba);
+		background-color: theme(colors.splash.white.hsla);
+	}
+	.bg-splash-gray {
+		background-color: theme(colors.splash.gray.hex);
+		background-color: theme(colors.splash.gray.rgba);
+		background-color: theme(colors.splash.gray.hsla);
 	}
 	.portfolioThreeCols {
 		flex-basis: theme(spacing.portfolio-three-cols);
