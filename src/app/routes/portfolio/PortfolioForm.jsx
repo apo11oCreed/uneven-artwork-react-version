@@ -147,7 +147,7 @@ export default function PortfolioForm() {
 					</h2>
 				</legend>
 				<label htmlFor='tagName'>Select Category</label>
-				<select name='tag' ref={filterSelector}>
+				<select name='tag' id='tagName' ref={filterSelector}>
 					<option value='all'>All</option>
 					{tagFilter.map((tag, index) => {
 						return (

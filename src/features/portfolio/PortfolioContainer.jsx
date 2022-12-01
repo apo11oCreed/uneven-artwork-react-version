@@ -9,7 +9,7 @@ export default function ArtworkContainer({ imageCollection }) {
 				{imageCollection.map((item, index) => {
 					return (
 						<Suspense
-							fallback={<Loader />} key={index}>
+							fallback={<li><Loader /></li>} key={index}>
 							<Artwork item={item} index={index} />
 						</Suspense>
 					);
