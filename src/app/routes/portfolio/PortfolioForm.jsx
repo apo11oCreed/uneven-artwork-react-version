@@ -10,7 +10,8 @@ export default function PortfolioForm() {
 	const filterSelector = useRef();
 	const portfolioTitle = useRef();
 
-	const contentful = import.meta.env;
+	const contentful =
+		import.meta.env;
 	const spaceId = contentful.VITE_CONTENTFUL_SPACE_ID;
 	const accessToken = contentful.VITE_CONTENTFUL_DELIVERY_API_ACCESS_TOKEN;
 	const query = `
@@ -53,15 +54,15 @@ export default function PortfolioForm() {
 
 	useEffect(() => {
 		window.fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/master`, {
-			method: 'POST',
-			headers: {
-				'content-type': 'application/json',
-				Authorization: `Bearer ${accessToken}`,
-			},
-			body: JSON.stringify({
-				query,
-			}),
-		})
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json',
+					Authorization: `Bearer ${accessToken}`,
+				},
+				body: JSON.stringify({
+					query,
+				}),
+			})
 			.then((res) => res.json())
 			.then(({ data, errors }) => {
 				if (errors) {
@@ -75,7 +76,7 @@ export default function PortfolioForm() {
 
 				assetsQuery = data.assetCollection.items;
 				const tags = assetsQuery.map((item) => {
-					
+
 					return item.contentfulMetadata.tags[0].name;
 				});
 
@@ -92,7 +93,8 @@ export default function PortfolioForm() {
 
 		if (filterSelector && filterSelector.current) {
 			filterSelector.current.addEventListener('change', filter);
-		} else {
+		}
+		else {
 			filterSelector.current.removeEventListener('change', filter);
 		}
 	}, []);
@@ -120,13 +122,26 @@ export default function PortfolioForm() {
 
 		if (e.target.value == 'all') {
 			filteredArray = imagesQuery;
-			console.log(filteredArray);
-		} else {
+		}
+		else {
 			filteredArray = imagesQuery.filter((item) => {
-				if(item.image.contentfulMetadata.tags[0].name==undefined){
-					console.log(item.image.contentfulMetadata.tags[0] + ' image is missing a tag.');
+
+				const tags = item.image.contentfulMetadata.tags;
+
+				if (tags[0].name == undefined) {
+					console.log(tags[0] + ' image is missing a tag.');
 				} else {
-					return item.image.contentfulMetadata.tags[0].name == e.target.value;
+
+					if (tags.length > 1) {
+						let filteredTags = tags.filter((item) => {
+							return item.name == e.target.value;
+						});
+						if(filteredTags.length){
+							return filteredTags[0].name == e.target.value;
+						}
+					} else {
+						return tags[0].name == e.target.value;
+					}
 				}
 			});
 		}
