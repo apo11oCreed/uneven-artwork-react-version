@@ -63,8 +63,8 @@ export default function About() {
 
 	return (
 		<section className='about'>
-			
-			<h2 className='tw-text-black tw-font-bold'>About Me</h2>
+
+			<h2 className='tw-text-black tw-text-center tw-font-bold'>About Me</h2>
 			{copyBaseCollection.sort((a, b) => a.id - b.id).map((item,index)=>{
 				//https://stackoverflow.com/questions/51219133/how-to-sort-a-map-by-a-specific-field-in-es6-react
 				return (

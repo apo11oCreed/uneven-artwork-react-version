@@ -55,7 +55,7 @@
 			/* Header.jsx */
 			header {
 				@apply tw-h-0 tw-bg-none tw-border-none;
-				box-shadow: theme(boxShadow.thinBlackBorder);
+				/* box-shadow: theme(boxShadow.thinBlackBorder); */
 				hr {
 					@apply tw-h-0 tw-bg-none tw-border-none tw-my-5;
 					box-shadow: theme(boxShadow.hr-white);
@@ -163,6 +163,22 @@
 					&.about {
 						@apply tw-p-8;
 						color: #000000;
+						.segment{
+							position: relative;
+							&:after{
+								content: "\22C4";
+								display: block;
+								position: absolute;
+								line-height: 1;
+								text-align:center;
+								bottom: -2rem;
+								font-size:4rem;
+								padding: 1rem;
+								color: bg-splash-aqua;
+								left: 50%;
+								transform: translate(-50%,0.8rem);
+								}
+						}
 						p {
 							@apply tw-text-[1.6rem] tw-leading-[1.45];
 						}
@@ -266,17 +282,20 @@
 									height: calc(100% - 12rem);
 									&::-webkit-scrollbar {
 										-webkit-appearance: none;
-										@apply tw-w-[1rem] tw-ml-[10rem];
+										@apply tw-w-[1rem] tw-ml-[100%];
 									}
 									&::-webkit-scrollbar-button {
 										/*@apply bg-blue;*/
 									}
 									&::-webkit-scrollbar-track {
-										@apply tw-bg-black tw-rounded-full;
+										@apply tw-bg-black;
 										background-clip: content-box;
+										background-color: white;
+										margin-top:-1.75rem;
+										height: 100%;
 									}
 									&::-webkit-scrollbar-thumb {
-										@apply bg-orange tw-rounded-full;
+										@apply bg-orange;
 										border: none;
 									}
 									&::-webkit-scrollbar-corner {

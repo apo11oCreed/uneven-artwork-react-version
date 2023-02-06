@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 export default function Menu({ menuRef, className }) {
 	return (
 		<div ref={menuRef} className='nav-wrapper'>
-			<h1 className='tw-font-bold' id='mainContent' tabIndex='0' role="heading" aria-level="1">
-				Natalie Correia<span className='pipe tw-border-r-2 -tw-translate-x-[1px] tw-mx-[2rem]'></span>Uneven Artwork
+			<h1 className='tw-font-bold tw-flex' id='mainContent' tabIndex='0' role="heading" aria-level="1">
+				Natalie Correia<span className='pipe tw-border-r-2 -tw-translate-x-[1px] tw-mx-[2rem] tw-rotate-45'></span>Uneven Artwork
 			</h1>
 			<hr />
 			<nav className={className}>
