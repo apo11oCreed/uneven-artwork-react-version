@@ -165,22 +165,29 @@
 						color: #000000;
 						.segment{
 							position: relative;
-							&:after{
-								content: "\22C4";
-								display: block;
-								position: absolute;
-								line-height: 1;
-								text-align:center;
-								bottom: -2rem;
-								font-size:4rem;
-								padding: 1rem;
-								color: bg-splash-aqua;
-								left: 50%;
-								transform: translate(-50%,0.8rem);
-								}
+							&:not(:last-of-type){
+								&:after{
+									content: "\25C6\25C6\25C6";
+									position: absolute;
+									line-height: 1;
+									bottom: -1rem;
+									font-size:2rem;
+									padding: 1rem;
+									left: 50%;
+									transform: translate(-50%,0.9rem);
+									background-color: #EDF7F8;
+									color: theme(colors.ngc.blue.hex.DEFAULT);
+									display: flex;
+									}
+							}
 						}
 						p {
 							@apply tw-text-[1.6rem] tw-leading-[1.45];
+							&:before{
+								display: inline-block;
+								width: 4rem;
+								content: "";
+							}
 						}
 						img {
 							&:last-of-type {

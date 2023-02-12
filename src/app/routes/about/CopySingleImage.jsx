@@ -10,8 +10,8 @@ export default function CopySingleImage({copyimage}) {
 		<div className='segment tw-w-full md:tw-w-[70rem] tw-border-b last-of-type:tw-border-b-0  tw-pb-[4rem] tw-mb-[4rem] tw-mx-auto tw-clear-both'>
 			<div className="tw-p-0 md:tw-pl-[2rem] md:tw-pr-[2rem] tw-inline-block">
 
-			<div className="tw-hidden md:tw-block tw-float-right"><img className='tw-rounded-lg tw-max-w-md tw-ml-4' src={copyimage.media.url} alt={copyimage.media.title} /></div>
-			<p className='tw-mb-[2rem] md:tw-mb-0'>{copyimage.text.json.content[0].content[0].value}</p>
+			<div className="tw-hidden md:tw-block tw-float-right"><img className='tw-rounded-lg tw-max-w-md tw-ml-6' src={copyimage.media.url} alt={copyimage.media.title} /></div>
+			<p className='tw-pt-[4rem] tw-mb-[2rem] md:tw-mb-0'>{copyimage.text.json.content[0].content[0].value}</p>
 			</div>
 		</div>
 	);
