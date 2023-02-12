@@ -188,6 +188,16 @@
 								width: 4rem;
 								content: "";
 							}
+							.first-sentence{
+								font-family: Unna, serif;
+								font-size: 2.5rem;
+								font-weight: 400;
+								line-height: 1.125;
+								color: theme(colors.ngc.blue.hex.DEFAULT);
+								display: block;
+								margin-bottom: 2rem;
+								margin-left: -2rem;
+							}
 						}
 						img {
 							&:last-of-type {
